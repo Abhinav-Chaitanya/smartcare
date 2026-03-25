@@ -1,105 +1,8 @@
-/*import React from 'react'
-import { useContext } from 'react'
-import { AdminContext } from '../../context/AdminContext'
-import { useEffect } from 'react'
-import { assets } from '../../../../frontend/src/assets/assets'
-import { AppContext } from '../../context/AppContext'
-
-
-const Dashboard = () => {
-
-  const { aToken, getDashData, cancelAppointment, dashData } = useContext(AdminContext)
-
-  const {slotDateFormat} = useContext(AppContext)
-
-  useEffect(() => {
-
-    if (aToken) {
-      getDashData()
-    }
-
-  }, [aToken])
-
-
-
-
-  return dashData && (
-    <div className='m-5'>
-
-      <div className='flex flex-wrap gap-3'>
-
-        <div className='flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all'>
-          <img className='w-14' src={assets.doctor_icon} alt="" />
-          <div>
-            <p className='text-xl font-semibold text-gray-600'>{dashData.doctors}</p>
-            <p className='text-gray-400'>Doctors</p>
-          </div>
-        </div>
-
-
-        <div className='flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all'>
-          <img className='w-14' src={assets.appointments_icon} alt="" />
-          <div>
-            <p className='text-xl font-semibold text-gray-600'>{dashData.appointments}</p>
-            <p className='text-gray-400'>Appointments</p>
-          </div>
-        </div>
-
-
-        <div className='flex items-center gap-2 bg-white p-4 min-w-52 rounded border-2 border-gray-100 cursor-pointer hover:scale-105 transition-all'>
-          <img className='w-14' src={assets.patients_icon} alt="" />
-          <div>
-            <p className='text-xl font-semibold text-gray-600'>{dashData.patients}</p>
-            <p className='text-gray-400'>Patients</p>
-          </div>
-        </div>
-
-      </div>
-
-
-      <div className='bg-white'>
-        <div className='flex items-center gap-2.5 px-4 py-4 mt-10 rounded-t border'>
-          <img src={assets.list_icon} alt="" />
-          <p className='font-semibold'>Latest Bookings</p>
-        </div>
-      </div>
-
-
-      <div className='p-4 border border-t-0'>
-        {
-          dashData.listAppointments.map((item, index) => (
-            <div className='flex items-center px-6 py-3 gap-3 hover:bg-gray-100' key={index}>
-              <img className='rounded-full w-10' src={item.docData.image} alt="" />
-              <div className='flex-1 text-sm'>
-                <p className='text-gray-800 font-medium'>{item.docData.name}</p>
-                <p className='text-gray-600'>{slotDateFormat(item.slotDate)}</p>
-              </div>
-              {
-                item.status === 'cancelled' ? <p className='text-red-500 text-xs font-medium'>Cancelled</p> : <img onClick={() => cancelAppointment(item._id)} className='w-10 cursor-pointer' src={assets.cancel_icon} alt="" />}
-
-            </div>
-
-
-
-          ))
-        }
-
-      </div>
-
-
-    </div>
-  )
-}
-
-export default Dashboard    */
-
-
-
-
 import React, { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AdminContext } from '../../context/AdminContext'
 import { AppContext } from '../../context/AppContext'
+import getProfileImage from '../../utils/getProfileImage'
 
 const Dashboard = () => {
 
@@ -114,13 +17,11 @@ const Dashboard = () => {
         }
     }, [aToken])
 
-    // Get today's date string for comparison
     const getTodayString = () => {
         const today = new Date()
         return `${today.getDate()}_${today.getMonth() + 1}_${today.getFullYear()}`
     }
 
-    // Filter appointments
     const todayAppointments = appointments.filter(apt => {
         return apt.slotDate === getTodayString() && apt.status === 'confirmed'
     })
@@ -133,11 +34,17 @@ const Dashboard = () => {
         return aptDate > today && apt.status === 'confirmed'
     }).slice(0, 5)
 
-    const recentActivity = appointments.filter(apt => {
-        return apt.status === 'completed' || apt.status === 'cancelled'
-    }).slice(0, 6)
+    const recentActivity = appointments
+        .filter(apt => apt.status === 'completed' || apt.status === 'cancelled' || apt.status === 'expired')
+        .sort((a, b) => {
+            const parseSlotDate = (slotDate) => {
+                const [day, month, year] = slotDate.split('_').map(Number)
+                return new Date(year, month - 1, day)
+            }
+            return parseSlotDate(b.slotDate) - parseSlotDate(a.slotDate)
+        })
+        .slice(0, 6)
 
-    // Counts
     const todayCount = todayAppointments.length
     const upcomingCount = appointments.filter(apt => {
         const [day, month, year] = apt.slotDate.split('_')
@@ -147,7 +54,6 @@ const Dashboard = () => {
         return aptDate > today && apt.status === 'confirmed'
     }).length
 
-    // Get status badge
     const getStatusBadge = (status) => {
         const config = {
             confirmed: { bg: 'bg-green-100', text: 'text-green-700', label: 'Confirmed' },
@@ -164,31 +70,22 @@ const Dashboard = () => {
         )
     }
 
-    // Get relative date text
     const getRelativeDate = (slotDate) => {
         const [day, month, year] = slotDate.split('_')
         const aptDate = new Date(year, month - 1, day)
         const today = new Date()
         today.setHours(0, 0, 0, 0)
-
         const tomorrow = new Date(today)
         tomorrow.setDate(tomorrow.getDate() + 1)
-
-        if (aptDate.getTime() === today.getTime()) {
-            return 'Today'
-        } else if (aptDate.getTime() === tomorrow.getTime()) {
-            return 'Tomorrow'
-        } else {
-            return slotDateFormat(slotDate)
-        }
+        if (aptDate.getTime() === today.getTime()) return 'Today'
+        else if (aptDate.getTime() === tomorrow.getTime()) return 'Tomorrow'
+        else return slotDateFormat(slotDate)
     }
 
-    // Navigate to appointments page with filter
     const navigateToAppointments = (filter) => {
         navigate('/all-appointments', { state: { filter } })
     }
 
-    // Loading state
     if (!dashData) {
         return (
             <div className='m-5 flex items-center justify-center min-h-[60vh]'>
@@ -211,10 +108,9 @@ const Dashboard = () => {
                 <p className='text-gray-500 mt-1'>Here's what's happening with appointments today.</p>
             </div>
 
-            {/* Stats Cards - Only 2 Cards */}
+            {/* Stats Cards */}
             <div className='flex flex-wrap gap-4 mb-8'>
 
-                {/* Today's Appointments Card */}
                 <div
                     onClick={() => navigateToAppointments('today')}
                     className='bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl px-5 py-4 text-white shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/30 transition-all cursor-pointer hover:-translate-y-0.5 group flex items-center gap-4'
@@ -233,7 +129,6 @@ const Dashboard = () => {
                     </svg>
                 </div>
 
-                {/* Upcoming Appointments Card */}
                 <div
                     onClick={() => navigateToAppointments('upcoming')}
                     className='bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl px-5 py-4 text-white shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all cursor-pointer hover:-translate-y-0.5 group flex items-center gap-4'
@@ -302,7 +197,7 @@ const Dashboard = () => {
                                 >
                                     <img
                                         className='w-11 h-11 rounded-full object-cover border-2 border-gray-100'
-                                        src={item.userData?.image}
+                                        src={getProfileImage(item.userData?.image)}
                                         alt={item.userData?.name}
                                     />
                                     <div className='flex-1 min-w-0'>
@@ -383,7 +278,7 @@ const Dashboard = () => {
                                 >
                                     <img
                                         className='w-11 h-11 rounded-full object-cover border-2 border-gray-100'
-                                        src={item.userData?.image}
+                                        src={getProfileImage(item.userData?.image)}
                                         alt={item.userData?.name}
                                     />
                                     <div className='flex-1 min-w-0'>
@@ -460,7 +355,7 @@ const Dashboard = () => {
                                 <div className='flex items-center gap-4 mb-3'>
                                     <img
                                         className='w-12 h-12 rounded-xl object-cover border-2 border-white shadow-sm'
-                                        src={item.userData?.image}
+                                        src={getProfileImage(item.userData?.image)}
                                         alt={item.userData?.name}
                                     />
                                     <div className='flex-1 min-w-0'>

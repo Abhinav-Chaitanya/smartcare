@@ -5,6 +5,7 @@ import { AppContext } from '../../context/AppContext'
 import { toast } from 'react-toastify'
 import { generatePrescriptionPDF } from '../../utils/generatePrescriptionPDF'
 import { assets } from '../../assets/assets.js'
+import getProfileImage from '../../utils/getProfileImage'
 
 const AppointmentDetails = () => {
 
@@ -214,7 +215,7 @@ const AppointmentDetails = () => {
                 <div className='p-6'>
                     <div className='flex items-start gap-6 flex-wrap'>
                         <img
-                            src={userData.image}
+                            src={getProfileImage(userData.image)}
                             alt={userData.name}
                             className='w-24 h-24 rounded-xl object-cover border-4 border-gray-100 shadow-md'
                         />

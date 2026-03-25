@@ -21,6 +21,9 @@ const DoctorDetails = () => {
     const [viewMode, setViewMode] = useState('upcoming')
     const [startDate, setStartDate] = useState('')
     const [endDate, setEndDate] = useState('')
+    const [specificDate, setSpecificDate] = useState('')
+    const [appliedCustomRange, setAppliedCustomRange] = useState({ start: '', end: '' })
+    const [appliedSpecificDate, setAppliedSpecificDate] = useState('')
     const [daysToShow, setDaysToShow] = useState(7)
 
     // ✅ Edit modal state
@@ -148,11 +151,13 @@ const DoctorDetails = () => {
         if (doctor) {
             if (viewMode === 'upcoming') {
                 generateUpcomingSlots()
-            } else if (viewMode === 'custom' && startDate) {
-                generateCustomSlots()
+            } else if (viewMode === 'custom' && appliedCustomRange.start) {
+                generateCustomSlots(appliedCustomRange.start, appliedCustomRange.end)
+            } else if (viewMode === 'specific' && appliedSpecificDate) {
+                generateCustomSlots(appliedSpecificDate, appliedSpecificDate)
             }
         }
-    }, [doctor, appointments, viewMode, startDate, endDate, daysToShow])
+    }, [doctor, appointments, viewMode, appliedCustomRange, appliedSpecificDate, daysToShow])
 
     const parseTime = (timeStr) => {
         if (!timeStr) return { hours: 0, minutes: 0 }
@@ -275,7 +280,7 @@ const DoctorDetails = () => {
         for (let i = 0; i < daysToShow; i++) {
             const dayDate = new Date(today)
             dayDate.setDate(today.getDate() + i)
-            const result = generateSlotsForDay(dayDate, bookedSlotsMap, false)
+            const result = generateSlotsForDay(dayDate, bookedSlotsMap, true)
             allDays.push({
                 date: dayDate,
                 slots: result.slots,
@@ -289,8 +294,8 @@ const DoctorDetails = () => {
         setSlotIndex(0)
     }
 
-    const generateCustomSlots = () => {
-        if (!startDate) return
+    const generateCustomSlots = (startStr, endStr) => {
+        if (!startStr) return
         const allDays = []
         const bookedSlotsMap = {}
         appointments.forEach(apt => {
@@ -303,11 +308,11 @@ const DoctorDetails = () => {
             }
         })
 
-        const start = new Date(startDate)
+        const start = new Date(startStr)
         start.setHours(0, 0, 0, 0)
-        const end = endDate ? new Date(endDate) : new Date(startDate)
+        const end = endStr ? new Date(endStr) : new Date(startStr)
         end.setHours(0, 0, 0, 0)
-        if (!endDate) end.setDate(end.getDate() + 6)
+        if (!endStr) end.setDate(end.getDate() + 6)
 
         const current = new Date(start)
         while (current <= end) {
@@ -338,7 +343,7 @@ const DoctorDetails = () => {
 
     const handleSlotClick = (slot) => {
         if (slot.bookingInfo && slot.bookingInfo.appointmentId) {
-            navigate(`/all-appointments`, { state: { highlightAppointment: slot.bookingInfo.appointmentId } })
+            navigate(`/admin-appointment-details/${slot.bookingInfo.appointmentId}`)
         }
     }
 
@@ -628,6 +633,12 @@ const DoctorDetails = () => {
                                         Upcoming
                                     </button>
                                     <button
+                                        onClick={() => setViewMode('specific')}
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'specific' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
+                                    >
+                                        Specific Date
+                                    </button>
+                                    <button
                                         onClick={() => setViewMode('custom')}
                                         className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'custom' ? 'bg-white text-primary shadow-sm' : 'text-gray-600 hover:text-gray-800'}`}
                                     >
@@ -651,6 +662,20 @@ const DoctorDetails = () => {
                                 </div>
                             )}
 
+                            {viewMode === 'specific' && (
+                                <div className='flex flex-wrap items-end gap-4 p-4 bg-gray-50 rounded-xl'>
+                                    <div>
+                                        <label className='block text-sm font-medium text-gray-600 mb-1'>Date</label>
+                                        <input type='date' value={specificDate} onChange={(e) => setSpecificDate(e.target.value)}
+                                            className='px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary' />
+                                    </div>
+                                    <button onClick={() => setAppliedSpecificDate(specificDate)} disabled={!specificDate}
+                                        className='px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all disabled:opacity-50'>
+                                        View Slots
+                                    </button>
+                                </div>
+                            )}
+
                             {viewMode === 'custom' && (
                                 <div className='flex flex-wrap items-end gap-4 p-4 bg-gray-50 rounded-xl'>
                                     <div>
@@ -663,7 +688,7 @@ const DoctorDetails = () => {
                                         <input type='date' value={endDate} onChange={(e) => setEndDate(e.target.value)} min={startDate}
                                             className='px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary' />
                                     </div>
-                                    <button onClick={generateCustomSlots} disabled={!startDate}
+                                    <button onClick={() => setAppliedCustomRange({ start: startDate, end: endDate })} disabled={!startDate}
                                         className='px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all disabled:opacity-50'>
                                         View Slots
                                     </button>

@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "69997fbda389a33ce364ee7c"
+  },
+  "name": "General physician",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-02-21T09:49:49.580Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69997fbda389a33ce364ee7d"
+  },
+  "name": "Gynecologist",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-02-21T09:49:49.580Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69997fbda389a33ce364ee7e"
+  },
+  "name": "Dermatologist",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-02-21T09:49:49.580Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69997fbda389a33ce364ee7f"
+  },
+  "name": "Pediatricians",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-02-21T09:49:49.580Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69997fbda389a33ce364ee80"
+  },
+  "name": "Neurologist",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-02-21T09:49:49.580Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69997fbda389a33ce364ee81"
+  },
+  "name": "Gastroenterologist",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-02-21T09:49:49.580Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "699be68f27998634deaa07dd"
+  },
+  "name": "Optomology",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-02-23T05:33:03.224Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69bd55db5f9f4039732e4498"
+  },
+  "name": "Def",
+  "description": "",
+  "isActive": true,
+  "createdAt": {
+    "$date": "2026-03-20T14:12:43.153Z"
+  },
+  "__v": 0
+}]

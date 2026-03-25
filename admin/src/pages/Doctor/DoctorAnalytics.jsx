@@ -10,6 +10,7 @@ import {
     LineChart, Line
 } from 'recharts'
 import { exportDoctorToPDF, exportDoctorToExcel } from '../../utils/doctorExportUtils'
+import getProfileImage from '../../utils/getProfileImage'
 
 const DoctorAnalytics = () => {
 
@@ -18,13 +19,29 @@ const DoctorAnalytics = () => {
     const { slotDateFormat, currency } = useContext(AppContext)
 
     const [period, setPeriod] = useState('30d')
+    const [specificDate, setSpecificDate] = useState('')
+    const [fromDate, setFromDate] = useState('')
+    const [toDate, setToDate] = useState('')
     const [exporting, setExporting] = useState(false)
 
     useEffect(() => {
         if (dToken) {
-            getAnalyticsData(period)
+            const options = { period }
+            if (specificDate) options.specificDate = specificDate
+            if (fromDate) options.fromDate = fromDate
+            if (toDate) options.toDate = toDate
+            getAnalyticsData(options)
         }
-    }, [dToken, period])
+    }, [dToken, period, specificDate, fromDate, toDate])
+
+    // Date filter helpers
+    const hasDateFilter = fromDate || toDate
+    const clearDateRange = () => { setFromDate(''); setToDate('') }
+    const clearSpecificDate = () => setSpecificDate('')
+    const handlePeriodChange = (p) => { setPeriod(p); setSpecificDate(''); setFromDate(''); setToDate('') }
+    const handleSpecificDateChange = (val) => { setSpecificDate(val); if (val) { setFromDate(''); setToDate(''); setPeriod('custom') } }
+    const handleFromDateChange = (val) => { setFromDate(val); if (val) { setSpecificDate(''); setPeriod('custom') } }
+    const handleToDateChange = (val) => { setToDate(val); if (val) { setSpecificDate(''); setPeriod('custom') } }
 
     // Colors
     const COLORS = {
@@ -172,10 +189,10 @@ const DoctorAnalytics = () => {
                         ].map(p => (
                             <button
                                 key={p.key}
-                                onClick={() => setPeriod(p.key)}
+                                onClick={() => handlePeriodChange(p.key)}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${period === p.key
-                                        ? 'bg-primary text-white shadow-md'
-                                        : 'text-gray-600 hover:bg-gray-100'
+                                    ? 'bg-primary text-white shadow-md'
+                                    : 'text-gray-600 hover:bg-gray-100'
                                     }`}
                             >
                                 {p.label}
@@ -206,6 +223,58 @@ const DoctorAnalytics = () => {
                             PDF
                         </button>
                     </div>
+                </div>
+            </div>
+
+            {/* Date Filters Row */}
+            <div className='bg-white rounded-xl shadow-sm p-4 mb-6'>
+                <div className='flex flex-wrap items-center gap-3'>
+                    {/* Specific Date */}
+                    <span className='text-sm font-medium text-gray-500 flex items-center gap-1'>
+                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                        </svg>
+                        Specific Date:
+                    </span>
+                    <input
+                        type='date'
+                        value={specificDate}
+                        onChange={(e) => handleSpecificDateChange(e.target.value)}
+                        className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary ${specificDate ? 'border-primary bg-primary/5' : 'border-gray-300'
+                            }`}
+                    />
+                    {specificDate && (
+                        <button onClick={clearSpecificDate} className='flex items-center gap-1.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-all border border-red-200'>
+                            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' /></svg>
+                            Clear
+                        </button>
+                    )}
+
+                    <div className='w-px h-8 bg-gray-200 mx-1'></div>
+
+                    {/* Date Range */}
+                    <span className='text-sm font-medium text-gray-500 flex items-center gap-1'>
+                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                        </svg>
+                        Date Range:
+                    </span>
+                    <input type='date' value={fromDate} onChange={(e) => handleFromDateChange(e.target.value)} className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary' />
+                    <span className='text-gray-400 text-sm'>to</span>
+                    <input type='date' value={toDate} min={fromDate} onChange={(e) => handleToDateChange(e.target.value)} className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary' />
+                    {hasDateFilter && (
+                        <button onClick={clearDateRange} className='flex items-center gap-1.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-all border border-red-200'>
+                            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' /></svg>
+                            Clear
+                        </button>
+                    )}
+
+                    {/* Active filter indicator */}
+                    {(specificDate || hasDateFilter) && (
+                        <span className='ml-auto text-xs text-primary bg-primary/10 px-3 py-1 rounded-full font-medium'>
+                            Custom date filter active
+                        </span>
+                    )}
                 </div>
             </div>
 
@@ -474,7 +543,8 @@ const DoctorAnalytics = () => {
                             <span className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm ${index === 0 ? 'bg-yellow-500' : index === 1 ? 'bg-gray-400' : index === 2 ? 'bg-orange-400' : 'bg-gray-300'}`}>
                                 {index + 1}
                             </span>
-                            <img src={patient.image} alt={patient.name} className='w-10 h-10 rounded-full object-cover border-2 border-white shadow' />
+                            {/* ✅ Patient image with fallback */}
+                            <img src={getProfileImage(patient.image)} alt={patient.name} className='w-10 h-10 rounded-full object-cover border-2 border-white shadow' />
                             <div className='flex-1 min-w-0'>
                                 <p className='font-semibold text-gray-800 text-sm truncate'>{patient.name}</p>
                                 <p className='text-xs text-gray-500'>{patient.count} visits</p>
@@ -500,7 +570,8 @@ const DoctorAnalytics = () => {
                     <div className='space-y-3 max-h-80 overflow-y-auto'>
                         {upcomingAppointments.map((apt, index) => (
                             <div key={index} className='flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all'>
-                                <img src={apt.patientImage} alt={apt.patientName} className='w-10 h-10 rounded-full object-cover border-2 border-white shadow' />
+                                {/* ✅ Patient image with fallback */}
+                                <img src={getProfileImage(apt.patientImage)} alt={apt.patientName} className='w-10 h-10 rounded-full object-cover border-2 border-white shadow' />
                                 <div className='flex-1 min-w-0'>
                                     <p className='font-semibold text-gray-800 text-sm truncate'>{apt.patientName}</p>
                                     <p className='text-xs text-gray-500'>{slotDateFormat(apt.date)} • {apt.time}</p>
@@ -537,7 +608,8 @@ const DoctorAnalytics = () => {
                     <div className='space-y-3 max-h-80 overflow-y-auto'>
                         {recentAppointments.map((apt, index) => (
                             <div key={index} className='flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all'>
-                                <img src={apt.patientImage} alt={apt.patientName} className='w-10 h-10 rounded-full object-cover border-2 border-white shadow' />
+                                {/* ✅ Patient image with fallback */}
+                                <img src={getProfileImage(apt.patientImage)} alt={apt.patientName} className='w-10 h-10 rounded-full object-cover border-2 border-white shadow' />
                                 <div className='flex-1 min-w-0'>
                                     <p className='font-semibold text-gray-800 text-sm truncate'>{apt.patientName}</p>
                                     <p className='text-xs text-gray-500'>{slotDateFormat(apt.date)} • {apt.time}</p>

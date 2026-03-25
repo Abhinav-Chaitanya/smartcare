@@ -936,7 +936,7 @@ const doctorProfile = async (req, res) => {
 }
 
 // API to update doctor profile
-const updateDoctorProfile = async (req, res) => {
+/*const updateDoctorProfile = async (req, res) => {
     try {
         const { docId } = req.doctor
         const { fees, address, available } = req.body
@@ -952,8 +952,23 @@ const updateDoctorProfile = async (req, res) => {
         console.log(error)
         res.json({ success: false, message: error.message })
     }
-}
+}*/
 
+// In doctorController.js — replace the existing updateDoctorProfile function with this:
+
+const updateDoctorProfile = async (req, res) => {
+    try {
+        const { docId } = req.doctor
+        const { address, available } = req.body  // ✅ fees removed
+
+        await doctorModel.findByIdAndUpdate(docId, { address, available })
+        res.json({ success: true, message: 'Profile updated' })
+
+    } catch (error) {
+        console.log(error)
+        res.json({ success: false, message: error.message })
+    }
+}
 
 
 // ✅ NEW: API to get doctor's schedule
@@ -1156,7 +1171,7 @@ const removeBlockedDate = async (req, res) => {
 const getDoctorAnalytics = async (req, res) => {
     try {
         const { docId } = req.doctor
-        const { period } = req.query // '7d', '30d', '6m', '1y', 'all'
+        const { period, specificDate, fromDate, toDate } = req.query
 
         // Get doctor's appointments
         const appointments = await appointmentModel.find({ docId })
@@ -1166,41 +1181,64 @@ const getDoctorAnalytics = async (req, res) => {
         const now = new Date()
         const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
 
-        let startDate = null
-        switch (period) {
-            case '7d':
-                startDate = new Date(today)
-                startDate.setDate(startDate.getDate() - 7)
-                break
-            case '30d':
-                startDate = new Date(today)
-                startDate.setDate(startDate.getDate() - 30)
-                break
-            case '6m':
-                startDate = new Date(today)
-                startDate.setMonth(startDate.getMonth() - 6)
-                break
-            case '1y':
-                startDate = new Date(today)
-                startDate.setFullYear(startDate.getFullYear() - 1)
-                break
-            default:
-                startDate = null // All time
-        }
-
         // Helper function to parse slotDate
         const parseSlotDate = (slotDate) => {
             const [day, month, year] = slotDate.split('_').map(Number)
             return new Date(year, month - 1, day)
         }
 
-        // Filter appointments by period
-        const filteredAppointments = startDate
-            ? appointments.filter(apt => {
+        // Filter appointments by custom date or period
+        let filteredAppointments = [...appointments]
+
+        if (specificDate) {
+            const target = new Date(specificDate)
+            target.setHours(0, 0, 0, 0)
+            filteredAppointments = filteredAppointments.filter(apt => {
                 const aptDate = parseSlotDate(apt.slotDate)
-                return aptDate >= startDate
+                aptDate.setHours(0, 0, 0, 0)
+                return aptDate.getTime() === target.getTime()
             })
-            : appointments
+        } else if (fromDate || toDate) {
+            if (fromDate) {
+                const from = new Date(fromDate)
+                from.setHours(0, 0, 0, 0)
+                filteredAppointments = filteredAppointments.filter(apt => parseSlotDate(apt.slotDate) >= from)
+            }
+            if (toDate) {
+                const to = new Date(toDate)
+                to.setHours(23, 59, 59, 999)
+                filteredAppointments = filteredAppointments.filter(apt => parseSlotDate(apt.slotDate) <= to)
+            }
+        } else {
+            let startDate = null
+            switch (period) {
+                case '7d':
+                    startDate = new Date(today)
+                    startDate.setDate(startDate.getDate() - 7)
+                    break
+                case '30d':
+                    startDate = new Date(today)
+                    startDate.setDate(startDate.getDate() - 30)
+                    break
+                case '6m':
+                    startDate = new Date(today)
+                    startDate.setMonth(startDate.getMonth() - 6)
+                    break
+                case '1y':
+                    startDate = new Date(today)
+                    startDate.setFullYear(startDate.getFullYear() - 1)
+                    break
+                default:
+                    startDate = null
+            }
+
+            if (startDate) {
+                filteredAppointments = filteredAppointments.filter(apt => {
+                    const aptDate = parseSlotDate(apt.slotDate)
+                    return aptDate >= startDate
+                })
+            }
+        }
 
         // Today's date string
         const todayStr = `${today.getDate()}_${today.getMonth() + 1}_${today.getFullYear()}`
@@ -1418,7 +1456,11 @@ const getDoctorAnalytics = async (req, res) => {
 
         // ============ RECENT APPOINTMENTS ============
         const recentAppointments = [...appointments]
-            .sort((a, b) => b.date - a.date)
+            .sort((a, b) => {
+                const timeA = a.date ? Number(a.date) : parseSlotDate(a.slotDate).getTime()
+                const timeB = b.date ? Number(b.date) : parseSlotDate(b.slotDate).getTime()
+                return timeB - timeA
+            })
             .slice(0, 10)
             .map(apt => ({
                 id: apt._id,

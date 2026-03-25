@@ -1,25 +1,3 @@
-/*import express from 'express'
-import { doctorList, loginDoctor, setNewPassword, sendDoctorOTP, verifyDoctorOTP, resetDoctorPassword, appointmentsDoctor, appointmentComplete, appointmentCancel, doctorDashboard, doctorProfile, updateDoctorProfile} from '../controllers/doctorController.js'
-import authDoctor from '../middlewares/authDoctor.js'
-
-const doctorRouter = express.Router()
-
-doctorRouter.get('/list',doctorList)
-doctorRouter.post('/login',loginDoctor)
-doctorRouter.post('/set-new-password', setNewPassword)
-doctorRouter.post('/send-otp', sendDoctorOTP)           // NEW
-doctorRouter.post('/verify-otp', verifyDoctorOTP)       // NEW
-doctorRouter.post('/reset-password', resetDoctorPassword)  // NEW
-doctorRouter.get('/appointments',authDoctor,appointmentsDoctor)
-doctorRouter.post('/complete-appointment',authDoctor,appointmentComplete)
-doctorRouter.post('/cancel-appointment',authDoctor,appointmentCancel)
-doctorRouter.get('/dashboard',authDoctor,doctorDashboard)
-doctorRouter.get('/profile',authDoctor,doctorProfile)
-doctorRouter.post('/update-profile',authDoctor,updateDoctorProfile)
-
-export default doctorRouter */
-
-
 import express from 'express'
 import {
     doctorList,

@@ -4,8 +4,9 @@ import { AdminContext } from '../../context/AdminContext'
 import { AppContext } from '../../context/AppContext'
 import { toast } from 'react-toastify'
 import { generatePrescriptionPDF } from '../../utils/generatePrescriptionPDF'
-import { generateAppointmentPDF } from '../../utils/generateAppointmentPDF'  // ✅ NEW IMPORT
+import { generateAppointmentPDF } from '../../utils/generateAppointmentPDF'
 import { assets } from '../../assets/assets.js'
+import getProfileImage from '../../utils/getProfileImage'
 
 const AdminAppointmentDetails = () => {
 
@@ -18,9 +19,8 @@ const AdminAppointmentDetails = () => {
     const [appointment, setAppointment] = useState(null)
     const [loading, setLoading] = useState(true)
     const [downloadingPDF, setDownloadingPDF] = useState(false)
-    const [downloadingAppointmentPDF, setDownloadingAppointmentPDF] = useState(false)  // ✅ NEW STATE
+    const [downloadingAppointmentPDF, setDownloadingAppointmentPDF] = useState(false)
 
-    // Find appointment from list
     useEffect(() => {
         if (aToken && appointments.length === 0) {
             getAllAppointments()
@@ -35,107 +35,57 @@ const AdminAppointmentDetails = () => {
         }
     }, [appointments, appointmentId])
 
-    // Calculate age
     const calculateAge = (dob) => {
         if (!dob || dob === 'Not Selected') return 'N/A'
         const today = new Date()
         const birthDate = new Date(dob)
         let age = today.getFullYear() - birthDate.getFullYear()
         const monthDiff = today.getMonth() - birthDate.getMonth()
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-            age--
-        }
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) age--
         return age + ' years'
     }
 
-    // Get status badge
     const getStatusBadge = (status) => {
         const config = {
             confirmed: {
-                bg: 'bg-green-100',
-                text: 'text-green-700',
-                label: 'Confirmed',
-                icon: (
-                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' />
-                    </svg>
-                )
+                bg: 'bg-green-100', text: 'text-green-700', label: 'Confirmed',
+                icon: (<svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M5 13l4 4L19 7' /></svg>)
             },
             completed: {
-                bg: 'bg-blue-100',
-                text: 'text-blue-700',
-                label: 'Completed',
-                icon: (
-                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' />
-                    </svg>
-                )
+                bg: 'bg-blue-100', text: 'text-blue-700', label: 'Completed',
+                icon: (<svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' /></svg>)
             },
             cancelled: {
-                bg: 'bg-red-100',
-                text: 'text-red-700',
-                label: 'Cancelled',
-                icon: (
-                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
-                    </svg>
-                )
+                bg: 'bg-red-100', text: 'text-red-700', label: 'Cancelled',
+                icon: (<svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' /></svg>)
             },
             pending: {
-                bg: 'bg-yellow-100',
-                text: 'text-yellow-700',
-                label: 'Pending',
-                icon: (
-                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' />
-                    </svg>
-                )
+                bg: 'bg-yellow-100', text: 'text-yellow-700', label: 'Pending',
+                icon: (<svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' /></svg>)
             },
             expired: {
-                bg: 'bg-orange-100',
-                text: 'text-orange-700',
-                label: 'Expired',
-                icon: (
-                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' />
-                    </svg>
-                )
+                bg: 'bg-orange-100', text: 'text-orange-700', label: 'Expired',
+                icon: (<svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' /></svg>)
             }
         }
         const { bg, text, label, icon } = config[status] || config.pending
         return (
             <span className={`${bg} ${text} px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1.5`}>
-                {icon}
-                {label}
+                {icon}{label}
             </span>
         )
     }
 
-    // Format completed date
     const formatCompletedDate = (date) => {
         if (!date) return 'N/A'
-        return new Date(date).toLocaleDateString('en-IN', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        })
+        return new Date(date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' })
     }
 
-    // Format booking date
     const formatBookingDate = (timestamp) => {
         if (!timestamp) return 'N/A'
-        return new Date(timestamp).toLocaleDateString('en-IN', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        })
+        return new Date(timestamp).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
     }
 
-    // Get cancelled/rescheduled by text
     const getActionByText = (by) => {
         switch (by) {
             case 'doctor': return 'Doctor'
@@ -145,14 +95,11 @@ const AdminAppointmentDetails = () => {
         }
     }
 
-    // Handle Prescription PDF Download
     const handleDownloadPDF = async () => {
         if (!appointment) return
-
         setDownloadingPDF(true)
         try {
-            const logoUrl = assets.logo1
-            await generatePrescriptionPDF(appointment, logoUrl)
+            await generatePrescriptionPDF(appointment, assets.logo1)
             toast.success('Prescription downloaded successfully!')
         } catch (error) {
             console.error('Error generating PDF:', error)
@@ -162,14 +109,11 @@ const AdminAppointmentDetails = () => {
         }
     }
 
-    // ✅ NEW: Handle Appointment PDF Download
     const handleDownloadAppointmentPDF = async () => {
         if (!appointment) return
-
         setDownloadingAppointmentPDF(true)
         try {
-            const logoUrl = assets.logo1
-            await generateAppointmentPDF(appointment, logoUrl)
+            await generateAppointmentPDF(appointment, assets.logo1)
             toast.success('Booking receipt downloaded successfully!')
         } catch (error) {
             console.error('Error generating appointment PDF:', error)
@@ -179,7 +123,6 @@ const AdminAppointmentDetails = () => {
         }
     }
 
-    // Loading state
     if (loading) {
         return (
             <div className='m-5 flex items-center justify-center min-h-[60vh]'>
@@ -191,7 +134,6 @@ const AdminAppointmentDetails = () => {
         )
     }
 
-    // Not found
     if (!appointment) {
         return (
             <div className='m-5 flex items-center justify-center min-h-[60vh]'>
@@ -202,13 +144,8 @@ const AdminAppointmentDetails = () => {
                         </svg>
                     </div>
                     <h3 className='text-xl font-semibold text-gray-700 mb-2'>Appointment Not Found</h3>
-                    <button
-                        onClick={() => navigate('/all-appointments')}
-                        className='text-primary font-medium hover:underline flex items-center gap-1 justify-center'
-                    >
-                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 19l-7-7m0 0l7-7m-7 7h18' />
-                        </svg>
+                    <button onClick={() => navigate('/all-appointments')} className='text-primary font-medium hover:underline flex items-center gap-1 justify-center'>
+                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 19l-7-7m0 0l7-7m-7 7h18' /></svg>
                         Back to All Appointments
                     </button>
                 </div>
@@ -222,10 +159,7 @@ const AdminAppointmentDetails = () => {
         <div className='w-full max-w-4xl m-5'>
 
             {/* Back Button */}
-            <button
-                onClick={() => navigate('/all-appointments')}
-                className='flex items-center gap-2 text-gray-600 hover:text-primary mb-6 transition-all group'
-            >
+            <button onClick={() => navigate('/all-appointments')} className='flex items-center gap-2 text-gray-600 hover:text-primary mb-6 transition-all group'>
                 <svg className='w-5 h-5 group-hover:-translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 19l-7-7m0 0l7-7m-7 7h18' />
                 </svg>
@@ -255,7 +189,7 @@ const AdminAppointmentDetails = () => {
                 <div className='p-6'>
                     <div className='flex items-start gap-6 flex-wrap'>
                         <img
-                            src={userData.image}
+                            src={getProfileImage(userData.image)}
                             alt={userData.name}
                             className='w-24 h-24 rounded-xl object-cover border-4 border-gray-100 shadow-md'
                         />
@@ -315,7 +249,7 @@ const AdminAppointmentDetails = () => {
                 </div>
             </div>
 
-            {/* ✅ NEW: Appointment Summary Section */}
+            {/* Appointment Summary Section */}
             <div className='bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6'>
                 <div className='p-6 border-b border-gray-100 flex items-center justify-between flex-wrap gap-4'>
                     <h2 className='text-lg font-bold text-gray-800 flex items-center gap-2'>
@@ -324,31 +258,19 @@ const AdminAppointmentDetails = () => {
                         </svg>
                         Appointment Summary
                     </h2>
-                    
-                    {/* ✅ Download Booking Receipt Button */}
                     <button
                         onClick={handleDownloadAppointmentPDF}
                         disabled={downloadingAppointmentPDF}
                         className='flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed'
                     >
                         {downloadingAppointmentPDF ? (
-                            <>
-                                <div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin'></div>
-                                Generating...
-                            </>
+                            <><div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin'></div>Generating...</>
                         ) : (
-                            <>
-                                <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' />
-                                </svg>
-                                Download Booking Receipt
-                            </>
+                            <><svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' /></svg>Download Booking Receipt</>
                         )}
                     </button>
                 </div>
-                
                 <div className='p-6'>
-                    {/* Appointment Details Grid */}
                     <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-6'>
                         <div className='bg-blue-50 rounded-xl p-4'>
                             <p className='text-xs text-blue-600 uppercase font-medium mb-1'>Appointment Date</p>
@@ -369,8 +291,6 @@ const AdminAppointmentDetails = () => {
                             </p>
                         </div>
                     </div>
-
-                    {/* Additional Details */}
                     <div className='bg-gray-50 rounded-xl p-4'>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <div>
@@ -433,23 +353,12 @@ const AdminAppointmentDetails = () => {
                         Prescription
                     </h2>
                     {status === 'completed' && prescription?.hasMedicines && (
-                        <button
-                            onClick={handleDownloadPDF}
-                            disabled={downloadingPDF}
-                            className='flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed'
-                        >
+                        <button onClick={handleDownloadPDF} disabled={downloadingPDF}
+                            className='flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed'>
                             {downloadingPDF ? (
-                                <>
-                                    <div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin'></div>
-                                    Generating...
-                                </>
+                                <><div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin'></div>Generating...</>
                             ) : (
-                                <>
-                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' />
-                                    </svg>
-                                    Download Prescription
-                                </>
+                                <><svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' /></svg>Download Prescription</>
                             )}
                         </button>
                     )}
@@ -470,11 +379,7 @@ const AdminAppointmentDetails = () => {
                                     {prescription.medicines.map((med, index) => (
                                         <tr key={index} className='hover:bg-gray-50'>
                                             <td className='px-4 py-4 font-semibold text-gray-800'>{med.name}</td>
-                                            <td className='px-4 py-4 text-center'>
-                                                <span className='bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium'>
-                                                    {med.timesPerDay}x daily
-                                                </span>
-                                            </td>
+                                            <td className='px-4 py-4 text-center'><span className='bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium'>{med.timesPerDay}x daily</span></td>
                                             <td className='px-4 py-4 text-center capitalize text-gray-600'>{med.timing}</td>
                                             <td className='px-4 py-4 text-center font-medium text-gray-700'>{med.duration}</td>
                                         </tr>
@@ -485,9 +390,7 @@ const AdminAppointmentDetails = () => {
                     ) : status === 'completed' ? (
                         <div className='p-6 bg-gray-50 rounded-xl text-center'>
                             <div className='w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3'>
-                                <svg className='w-6 h-6 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z' />
-                                </svg>
+                                <svg className='w-6 h-6 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z' /></svg>
                             </div>
                             <p className='text-gray-500'>No medicines prescribed</p>
                         </div>

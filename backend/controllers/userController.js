@@ -577,7 +577,7 @@ const getProfile = async (req, res) => {
 }
 
 // API for updating user profile
-const updateProfile = async (req, res) => {
+/*const updateProfile = async (req, res) => {
   try {
     const { userId } = req.user
     const { name, phone, address, dob, gender } = req.body
@@ -594,6 +594,55 @@ const updateProfile = async (req, res) => {
       const imageURL = imageUpload.secure_url
       await userModel.findByIdAndUpdate(userId, { image: imageURL })
     }
+
+    res.json({ success: true, message: "Profile Updated.." })
+
+  } catch (error) {
+    console.log(error)
+    res.json({ success: false, message: error.message })
+  }
+}*/
+
+
+// In userController.js — replace the existing updateProfile function with this:
+
+const updateProfile = async (req, res) => {
+  try {
+    const { userId } = req.user
+    const { name, phone, address, dob, gender } = req.body
+    const imageFile = req.file
+
+    if (!name || !phone || !dob || !gender) {
+      return res.json({ success: false, message: "Data Missing" })
+    }
+
+    // ✅ Check if profile is now complete
+    const isComplete = 
+      phone && phone !== '0000000000' &&
+      gender && gender !== 'Not Selected' &&
+      dob && dob !== 'Not Selected'
+
+    await userModel.findByIdAndUpdate(userId, { 
+      name, 
+      phone, 
+      address: JSON.parse(address), 
+      dob, 
+      gender,
+      isProfileComplete: isComplete  // ✅ NEW
+    })
+
+    if (imageFile) {
+      const imageUpload = await cloudinary.uploader.upload(imageFile.path, { resource_type: 'image' })
+      const imageURL = imageUpload.secure_url
+      await userModel.findByIdAndUpdate(userId, { image: imageURL })
+    }
+
+    // ✅ NEW: Sync the updated user profile into all of their existing appointment documents
+    const updatedUser = await userModel.findById(userId).select('-password')
+    await appointmentModel.updateMany(
+      { userId },
+      { userData: updatedUser }
+    )
 
     res.json({ success: true, message: "Profile Updated.." })
 

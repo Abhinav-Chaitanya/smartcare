@@ -1,0 +1,3468 @@
+[{
+  "_id": {
+    "$oid": "69727168db706d5537f9d542"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "29_1_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "karthikeya@smartcare.com",
+    "password": "$2b$10$z61iJN0zqgn92.pD67Uls.9p8usWpRxxbpHUlrmeFHfpgk57OpOdy",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 300,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0
+  },
+  "amount": 300,
+  "date": {
+    "$numberLong": "1769107816057"
+  },
+  "status": "cancelled",
+  "paymentExpiresAt": {
+    "$date": "2026-01-22T18:51:16.057Z"
+  },
+  "paymentStatus": "paid",
+  "__v": 0,
+  "razorpayOrderId": "order_S71sSQeVEURbN4",
+  "razorpayPaymentId": "pay_S71sh0PJwyYWEW",
+  "razorpaySignature": "405f89c9d59afd3d24f5fc0c066c7b6d6d2d9afe90c2d0a806ca20aba076dbf4"
+},
+{
+  "_id": {
+    "$oid": "697357d3d7d10ffc63f55521"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "23_1_2026",
+  "slotTime": "6:00 pm",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "karthikeya@smartcare.com",
+    "password": "$2b$10$z61iJN0zqgn92.pD67Uls.9p8usWpRxxbpHUlrmeFHfpgk57OpOdy",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 300,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0
+  },
+  "amount": 300,
+  "date": {
+    "$numberLong": "1769166803346"
+  },
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-01-23T11:14:23.346Z"
+  },
+  "paymentStatus": "paid",
+  "__v": 0,
+  "razorpayOrderId": "order_S7IcraWzifPjOX",
+  "razorpayPaymentId": "pay_S7Id3et7DsqS78",
+  "razorpaySignature": "dc1e1978e7895c25a45ff77fd1ebca4a3e22221bb1dd79d084c387390586c821"
+},
+{
+  "_id": {
+    "$oid": "69779907083ad92a56da292d"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "27_1_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "karthikeya@smartcare.com",
+    "password": "$2b$10$z61iJN0zqgn92.pD67Uls.9p8usWpRxxbpHUlrmeFHfpgk57OpOdy",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 300,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0
+  },
+  "amount": 300,
+  "date": {
+    "$numberLong": "1769445639026"
+  },
+  "status": "cancelled",
+  "paymentExpiresAt": {
+    "$date": "2026-01-26T16:41:39.026Z"
+  },
+  "paymentStatus": "paid",
+  "__v": 0,
+  "razorpayOrderId": "order_S8Zo1HypL6s9oI",
+  "razorpayPaymentId": "pay_S8ZoG9EDBPoTAo",
+  "razorpaySignature": "518992b634920ee3a9a90051ad0c3c86efac36887371ae71d1f53af4737c1155"
+},
+{
+  "_id": {
+    "$oid": "6977997d083ad92a56da293d"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "30_1_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "karthikeya@smartcare.com",
+    "password": "$2b$10$z61iJN0zqgn92.pD67Uls.9p8usWpRxxbpHUlrmeFHfpgk57OpOdy",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 300,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0
+  },
+  "amount": 300,
+  "date": {
+    "$numberLong": "1769445757532"
+  },
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-01-26T16:43:37.532Z"
+  },
+  "paymentStatus": "paid",
+  "__v": 0,
+  "razorpayOrderId": "order_S8Zq5iuORMugyL",
+  "razorpayPaymentId": "pay_S8ZqKP0XV8i8eA",
+  "razorpaySignature": "efc4fab879c3fab4289b8f0915ccfa04550ea8c78ccbd6bb6d8a6adbabf193ea"
+},
+{
+  "_id": {
+    "$oid": "697a313dd322d4674498feaa"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "29_1_2026",
+  "slotTime": "10:20 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "karthikeya@smartcare.com",
+    "password": "$2b$10$z61iJN0zqgn92.pD67Uls.9p8usWpRxxbpHUlrmeFHfpgk57OpOdy",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 300,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0
+  },
+  "amount": 300,
+  "date": {
+    "$numberLong": "1769615677124"
+  },
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-01-28T15:55:37.124Z"
+  },
+  "paymentStatus": "paid",
+  "__v": 0,
+  "razorpayOrderId": "order_S9M5daP4xgBMCr",
+  "razorpayPaymentId": "pay_S9M5w7GF7FjjxI",
+  "razorpaySignature": "27d7fbef5f89598732c9457e93e07cacc748f2cd1079cd4a1714fe665feb37f2"
+},
+{
+  "_id": {
+    "$oid": "697cb026cfcfc9c59a255621"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "30_1_2026",
+  "slotTime": "7:00 pm",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$J/ghroH0OQVfY4Y9X6wZ.O/E0c5KMiylCNNioFuHhLxT1OIviJbRq",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1769779238764"
+  },
+  "status": "cancelled",
+  "paymentExpiresAt": {
+    "$date": "2026-01-30T13:21:38.764Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "Due to a personal matter, I need to cancel this appointment.",
+  "rescheduleReason": "",
+  "cancelledBy": "doctor",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SA6XFmWS4YjRaI",
+  "razorpayPaymentId": "pay_SA6XaVPoK6MAOH",
+  "razorpaySignature": "5cd427be6ccf764ff6680b7ff79904690b6c0b0748cee1a498bf488785a945a7"
+},
+{
+  "_id": {
+    "$oid": "697cb0ffcfcfc9c59a25563d"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "30_1_2026",
+  "slotTime": "7:40 pm",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$J/ghroH0OQVfY4Y9X6wZ.O/E0c5KMiylCNNioFuHhLxT1OIviJbRq",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1769779455100"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-01-30T13:25:15.100Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "",
+  "rescheduledBy": "doctor",
+  "previousSlotDate": "30_1_2026",
+  "previousSlotTime": "7:00 pm",
+  "__v": 0,
+  "razorpayOrderId": "order_SA6b2aLo0MicXL",
+  "razorpayPaymentId": "pay_SA6bHX3efttOcS",
+  "razorpaySignature": "a07efb7ec730956d08e64de2abe7ff6f485d9bf10bc2f6fdd657d4bacb451700"
+},
+{
+  "_id": {
+    "$oid": "697cd5a93a35734afc1b8da0"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "31_1_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$J/ghroH0OQVfY4Y9X6wZ.O/E0c5KMiylCNNioFuHhLxT1OIviJbRq",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1769788841441"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-01-30T16:01:41.441Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SA9GIo05JHwQG0",
+  "razorpayPaymentId": "pay_SA9GUbtj75lgri",
+  "razorpaySignature": "e1bdbc5f55694c0952dc20fff92b24709fb3b3978dd795f44f3a7f250f5bf189"
+},
+{
+  "_id": {
+    "$oid": "697f3d512cd59a804945a754"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "1_2_2026",
+  "slotTime": "6:00 pm",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$J/ghroH0OQVfY4Y9X6wZ.O/E0c5KMiylCNNioFuHhLxT1OIviJbRq",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1769946449012"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-01T11:48:29.012Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SAs14uYK6PNpdF",
+  "razorpayPaymentId": "pay_SAs1J2JIAV5ALo",
+  "razorpaySignature": "04adcc452ab989f0b0d0fc6b8096e3790e7b04ea5192491341512a6a1517722a"
+},
+{
+  "_id": {
+    "$oid": "697f3d862cd59a804945a762"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "2_2_2026",
+  "slotTime": "12:00 pm",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$J/ghroH0OQVfY4Y9X6wZ.O/E0c5KMiylCNNioFuHhLxT1OIviJbRq",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1769946502230"
+  },
+  "status": "cancelled",
+  "paymentExpiresAt": {
+    "$date": "2026-02-01T11:49:22.230Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "Due to an unexpected emergency, I am unable to attend this appointment.",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "admin",
+  "rescheduledBy": "admin",
+  "previousSlotDate": "2_2_2026",
+  "previousSlotTime": "10:00 am",
+  "__v": 0,
+  "razorpayOrderId": "order_SAs1z2fKPng5DM",
+  "razorpayPaymentId": "pay_SAs28LB14fMYJF",
+  "razorpaySignature": "763a650e0f4436d09a5628bb9eb280e238ccdce9212dfff44a4b136893933f93"
+},
+{
+  "_id": {
+    "$oid": "697f9219b1c79649d19efa1c"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317d3ac89b4d61762f8d0c",
+  "slotDate": "2_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317d3ac89b4d61762f8d0c"
+    },
+    "name": "Dr. Sridevi",
+    "email": "22711a05a9+1@necn.ac.in",
+    "password": "$2b$10$ZHwSUww7hnMe59KATSD7nOtk0T7uxaV.VbxfBDw8Mfq5OROicPsGi",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764851001/qcoj9hx1amd4hqgmrqtf.png",
+    "speciality": "Gynecologist",
+    "degree": "MBBS, MD",
+    "experience": "6 Year",
+    "about": "Dr. Sridevi specialises in women’s health and prenatal care with a compassionate approach.",
+    "available": true,
+    "fees": 500,
+    "address": {
+      "line1": "Kothapeta Main Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764851002573"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 500,
+  "date": {
+    "$numberLong": "1769968153017"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-01T17:50:13.017Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SAyBAaJ5vJVgio",
+  "razorpayPaymentId": "pay_SAyBPTVuUq3i6M",
+  "razorpaySignature": "b275ed047e056c363f63ae9fec81db2b9aab6211ccf5f3241b1f37cd96987aed"
+},
+{
+  "_id": {
+    "$oid": "697f92d6b1c79649d19efa30"
+  },
+  "userId": "697f9265b1c79649d19efa26",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "2_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "697f9265b1c79649d19efa26"
+    },
+    "name": "Ramesh",
+    "email": "pvac2005+1@gmail.com",
+    "image": "data:image/webp;base64,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",
+    "address": {
+      "line1": "",
+      "line2": ""
+    },
+    "gender": "Not Selected",
+    "dob": "Not Selected",
+    "phone": "0000000000",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1769968342422"
+  },
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-02-01T17:53:22.422Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SAyEUQWrTZfrnD",
+  "razorpayPaymentId": "pay_SAyEdDryqGUYaN",
+  "razorpaySignature": "2410f65119a91c2f4bdf6014e8918aef7a9520be0cd4de577a2405db747a027d"
+},
+{
+  "_id": {
+    "$oid": "6980b0097d79e5b381c68b99"
+  },
+  "userId": "697f9265b1c79649d19efa26",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "3_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "697f9265b1c79649d19efa26"
+    },
+    "name": "Ramesh",
+    "email": "pvac2005+1@gmail.com",
+    "image": "data:image/webp;base64,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",
+    "address": {
+      "line1": "",
+      "line2": ""
+    },
+    "gender": "Not Selected",
+    "dob": "Not Selected",
+    "phone": "0000000000",
+    "__v": 0
+  },
+  "docData": {
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1770041353144"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-02T14:10:13.144Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SBIxtXxLjmQIgM",
+  "razorpayPaymentId": "pay_SBIy58N7UNE4Pv",
+  "razorpaySignature": "4cf7bc6605a32efaf80338761a2d455abde6a5b6c40aedad9e013d7346fcbbee"
+},
+{
+  "_id": {
+    "$oid": "6982295921ccd0137d35be26"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "6982282721ccd0137d35bd3a",
+  "slotDate": "5_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:30 AM",
+            "end": "1:30 PM",
+            "_id": {
+              "$oid": "6982282721ccd0137d35bd3b"
+            }
+          },
+          {
+            "start": "3:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6982282721ccd0137d35bd3c"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6982282721ccd0137d35bd3d"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "thursday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6982282721ccd0137d35bd3e"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6982282721ccd0137d35bd3f"
+            }
+          }
+        ]
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6982282721ccd0137d35bd40"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6982282721ccd0137d35bd41"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "2:00 PM",
+            "_id": {
+              "$oid": "698228bb21ccd0137d35bd6d"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "6982282721ccd0137d35bd3a"
+    },
+    "name": "Kiran kumar",
+    "email": "22711a05a9+12@necn.ac.in",
+    "password": "$2b$10$Rh9I5ddgmwwmrJq4guWvK.4j9/5GF9p0MFPp0JKEXfWN16zvlIJAC",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1770137639/gewid4v4tfhm1n2xmvtb.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "1 Year",
+    "about": "aeuaiuafiuhlfzdlvnzjnshfakuaieyfgaieuujPWOD[FKP;DJIFSOKGIHJFIAUWIGYRUEYTIRIUAPO[LGSKPIJOipoksobsfj",
+    "available": true,
+    "fees": 200,
+    "address": {
+      "line1": "Stree 1 ",
+      "line2": "Nellore"
+    },
+    "date": {
+      "$numberLong": "1770137639663"
+    },
+    "isFirstLogin": false,
+    "isScheduleConfirmed": true,
+    "slotDuration": 20,
+    "advanceBookingDays": 7,
+    "blockedDates": [],
+    "__v": 0
+  },
+  "amount": 200,
+  "date": {
+    "$numberLong": "1770137945644"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-03T17:00:05.644Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SBkOUSwrAxWDAe",
+  "razorpayPaymentId": "pay_SBkOj2HLz83F4C",
+  "razorpaySignature": "7d60f2903b31a3fb573fe17c67a80ca9b2e4f51d6435fb6ecd387b6d00010662"
+},
+{
+  "_id": {
+    "$oid": "69838c81f02698f0d2c1b9c0"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "6_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1770228865472"
+  },
+  "status": "cancelled",
+  "paymentExpiresAt": {
+    "$date": "2026-02-04T18:15:25.472Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "Due to an unexpected emergency, I am unable to attend this appointment.",
+  "rescheduleReason": "",
+  "cancelledBy": "doctor",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SCADAAdss54hvq",
+  "razorpayPaymentId": "pay_SCADMoXaYF6m7b",
+  "razorpaySignature": "07a4d6d0223a3a18a8d25e6f506c4ea3f0e73a85efd4ddb93dce4d82636a9b6f"
+},
+{
+  "_id": {
+    "$oid": "69838dcbf02698f0d2c1baa6"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "7_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1770229195180"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-04T18:20:55.180Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "",
+  "rescheduledBy": "admin",
+  "previousSlotDate": "6_2_2026",
+  "previousSlotTime": "10:00 am",
+  "__v": 0,
+  "razorpayOrderId": "order_SCAIwoQFV3FNHn",
+  "razorpayPaymentId": "pay_SCAJ7YKe8qQ2pP",
+  "razorpaySignature": "25365f7b522bff5a8045c221ef39841b9a385fa3a054def6a6da220ea5d72571"
+},
+{
+  "_id": {
+    "$oid": "69844c7b9e898b60990fc03b"
+  },
+  "userId": "69844c359e898b60990fc015",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "6_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "69844c359e898b60990fc015"
+    },
+    "name": "Sairam",
+    "email": "bhavanimuttukuru@gmail.com",
+    "image": "data:image/webp;base64,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",
+    "address": {
+      "line1": "",
+      "line2": ""
+    },
+    "gender": "Not Selected",
+    "dob": "Not Selected",
+    "phone": "0000000000",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": {
+      "$numberLong": "1764850845490"
+    },
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": {
+    "$numberLong": "1770278011731"
+  },
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-05T07:54:31.731Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "__v": 0,
+  "razorpayOrderId": "order_SCOAUsVtUaDdyp",
+  "razorpayPaymentId": "pay_SCOAmSAhXo3qVe",
+  "razorpaySignature": "f144a14a53ee84f78ba59dda17611c07f4f9f9598be76a2116732a4206d6182a"
+},
+{
+  "_id": {
+    "$oid": "698467b692831ddc2c0e860c"
+  },
+  "userId": "69844c359e898b60990fc015",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "7_2_2026",
+  "slotTime": "12:00 pm",
+  "userData": {
+    "_id": {
+      "$oid": "69844c359e898b60990fc015"
+    },
+    "name": "Sairam",
+    "email": "bhavanimuttukuru@gmail.com",
+    "image": "data:image/webp;base64,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",
+    "address": {
+      "line1": "",
+      "line2": ""
+    },
+    "gender": "Not Selected",
+    "dob": "Not Selected",
+    "phone": "0000000000",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1770284982344,
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-05T09:50:42.344Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "",
+  "rescheduledBy": "admin",
+  "previousSlotDate": "7_2_2026",
+  "previousSlotTime": "11:00 am",
+  "__v": 0,
+  "razorpayOrderId": "order_SCQ98yUCd8qSIs",
+  "razorpayPaymentId": "pay_SCQ9Nhu82VwA8Z",
+  "razorpaySignature": "cce72959b28da852eed7dafd3218597f6470a86ae78be943aa1e82a0e378df72"
+},
+{
+  "_id": {
+    "$oid": "698b1d2261400f5604a3303a"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "11_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1770724642701,
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-02-10T11:58:22.701Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "diagnosis": "viral fever",
+  "prescription": {
+    "hasMedicines": true,
+    "medicines": [
+      {
+        "name": "Dolo 650",
+        "timesPerDay": 1,
+        "timing": "after food",
+        "duration": "7 days",
+        "_id": {
+          "$oid": "698b1e0261400f5604a3309b"
+        }
+      },
+      {
+        "name": "paracetmol",
+        "timesPerDay": 3,
+        "timing": "before food",
+        "duration": "10",
+        "_id": {
+          "$oid": "698b1e0261400f5604a3309c"
+        }
+      }
+    ],
+    "notes": "Drink plenty of water, Take rest, Avoid cold drinks"
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SEQzaAgk0QE39b",
+  "razorpayPaymentId": "pay_SER0mZ5GCxznf8",
+  "razorpaySignature": "912f453c5960fb2832d1f40d98f8538e84b49cdb4c0d94261bc187e0f7654c2e",
+  "completedAt": {
+    "$date": "2026-02-10T12:01:06.616Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "698ca33e65044e08b7f08123"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "13_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1770824510513,
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-02-11T15:42:50.513Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "",
+  "rescheduledBy": "doctor",
+  "previousSlotDate": "14_2_2026",
+  "previousSlotTime": "10:00 am",
+  "diagnosis": "Cold and cough",
+  "prescription": {
+    "hasMedicines": true,
+    "medicines": [
+      {
+        "name": "Azithromycen",
+        "timesPerDay": 2,
+        "timing": "before food",
+        "duration": "7  days",
+        "_id": {
+          "$oid": "698ca47865044e08b7f081c9"
+        }
+      }
+    ],
+    "notes": "Drink plenty of water, Avoid spicy food, Avoid cold drinks"
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SEtLn7XijnkTA2",
+  "razorpayPaymentId": "pay_SEtMGxLPVXbPBX",
+  "razorpaySignature": "7d8ba82f813ced8d1d4622308e6de66dc931f57b87eb118615cd40991c7cd107",
+  "completedAt": {
+    "$date": "2026-02-11T15:47:04.680Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "698ca6a8fe290ba747f047ab"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "13_2_2026",
+  "slotTime": "10:20 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1770825384430,
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-02-11T15:57:24.430Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "diagnosis": "Fever",
+  "prescription": {
+    "hasMedicines": true,
+    "medicines": [
+      {
+        "name": "Dolo",
+        "timesPerDay": 2,
+        "timing": "after food",
+        "duration": "5 days",
+        "_id": {
+          "$oid": "698ebf9dfe290ba747f04d2d"
+        }
+      }
+    ],
+    "notes": "Drink plenty of water, Take rest, Avoid cold drinks"
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SEtbAstoot37Gh",
+  "razorpayPaymentId": "pay_SEtbKj5gmfPmDf",
+  "razorpaySignature": "1d50c4c427e11e68f32bc3fc16bb26f9558266c579bcbb6f77ddacffdd3e87b9",
+  "completedAt": {
+    "$date": "2026-02-13T06:07:25.806Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "698eaac0fe290ba747f04c10"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "14_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b806"
+            }
+          },
+          {
+            "start": "2:00 PM",
+            "end": "5:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b807"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 0,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1770957504865,
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-13T04:39:24.865Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "To better accommodate your needs, I am rescheduling to a more suitable time.",
+  "cancelledBy": "",
+  "rescheduledBy": "doctor",
+  "previousSlotDate": "13_2_2026",
+  "previousSlotTime": "10:40 am",
+  "diagnosis": "",
+  "prescription": {
+    "hasMedicines": false,
+    "notes": "",
+    "medicines": []
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SFV7ECg9D4wKRj",
+  "razorpayPaymentId": "pay_SFV7Xy82W98jBZ",
+  "razorpaySignature": "74a3b107e150cc58909f841ca1e5970f7e952355cdf5520ff347a3f06e9e5f39"
+},
+{
+  "_id": {
+    "$oid": "69956c73d8bfb332703c594d"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "20_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 1,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "19_2_2026",
+        "reason": "Personal leave",
+        "_id": {
+          "$oid": "69956c3bd8bfb332703c58ec"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1771400307210,
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-18T07:39:27.210Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "diagnosis": "",
+  "prescription": {
+    "hasMedicines": false,
+    "notes": "",
+    "medicines": []
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SHWr2SAZyCuW5c",
+  "razorpayPaymentId": "pay_SHWrPsCDnlDokL",
+  "razorpaySignature": "a8ef30f7961f2d91a2096af3df9a01a75a777b45d728b81715737139ca6f50ac"
+},
+{
+  "_id": {
+    "$oid": "69985e7b7810ca844305992f"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "21_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 2,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "19_2_2026",
+        "reason": "Personal leave",
+        "_id": {
+          "$oid": "69956c3bd8bfb332703c58ec"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1771593339348,
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-20T13:16:39.348Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "",
+  "rescheduledBy": "doctor",
+  "previousSlotDate": "23_2_2026",
+  "previousSlotTime": "10:00 am",
+  "diagnosis": "",
+  "prescription": {
+    "hasMedicines": false,
+    "notes": "",
+    "medicines": []
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SIPfUhi1l3p0Vb",
+  "razorpayPaymentId": "pay_SIPfiQWGkCnbCE",
+  "razorpaySignature": "eccea77d37226624fd005387c93b16f48dfe004677bdd46bbfced37e37264b30"
+},
+{
+  "_id": {
+    "$oid": "6999aeb186d50e3a12ea0af5"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "25_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 4,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "23_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "69989dd4068cd1d1cb1e77df"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1771679409416,
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-02-21T13:11:09.416Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "",
+  "rescheduledBy": "doctor",
+  "previousSlotDate": "24_2_2026",
+  "previousSlotTime": "10:00 am",
+  "diagnosis": "",
+  "prescription": {
+    "hasMedicines": false,
+    "notes": "",
+    "medicines": []
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SIo6mZfeAX3OjI",
+  "razorpayPaymentId": "pay_SIo78lHSX7GN9O",
+  "razorpaySignature": "bb3955dc7e6be97832df6b3b7c5ec2d84d10c4639bcbd62f3de39cccaccdc001"
+},
+{
+  "_id": {
+    "$oid": "6999ea6f82104c8b8482f23f"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "25_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 4,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "23_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "69989dd4068cd1d1cb1e77df"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1771694703727,
+  "status": "cancelled",
+  "paymentExpiresAt": {
+    "$date": "2026-02-21T17:26:03.727Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "patient",
+  "rescheduledBy": "patient",
+  "previousSlotDate": "24_2_2026",
+  "previousSlotTime": "12:00 pm",
+  "diagnosis": "",
+  "prescription": {
+    "hasMedicines": false,
+    "notes": "",
+    "medicines": []
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SIsS3zVv5Q2Z6n",
+  "razorpayPaymentId": "pay_SIsSHZt7YtB0Bs",
+  "razorpaySignature": "5ca20914965895883768d7f33df6b2884dff8263f29e93c579eb80b549697285"
+},
+{
+  "_id": {
+    "$oid": "699b21b327998634dea9fdbc"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "24_2_2026",
+  "slotTime": "10:20 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "1324567",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 4,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "23_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "69989dd4068cd1d1cb1e77df"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1771774387218,
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-02-22T15:34:07.218Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "Due to a schedule conflict, I need to reschedule this appointment to the new time.",
+  "cancelledBy": "",
+  "rescheduledBy": "doctor",
+  "previousSlotDate": "25_2_2026",
+  "previousSlotTime": "10:00 am",
+  "diagnosis": "Fever",
+  "prescription": {
+    "hasMedicines": true,
+    "medicines": [
+      {
+        "name": "Dolo 650",
+        "timesPerDay": 2,
+        "timing": "after food",
+        "duration": "7 days",
+        "_id": {
+          "$oid": "699b233627998634dea9fea5"
+        }
+      }
+    ],
+    "notes": "Drink plenty of water, Take rest, Avoid cold drinks"
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SJF4vrwn7OH1s0",
+  "razorpayPaymentId": "pay_SJF59pySXjGDAZ",
+  "razorpaySignature": "32eea37cfce8e473e57194022f88a459375e6036675106001366cd2e3e33e9ee",
+  "completedAt": {
+    "$date": "2026-02-22T15:39:34.013Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "699be2a127998634deaa04e6"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "25_2_2026",
+  "slotTime": "10:20 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "132456789",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 5,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "23_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "69989dd4068cd1d1cb1e77df"
+        }
+      },
+      {
+        "date": "24_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "699b242127998634dea9ff67"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1771823777254,
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-02-23T05:17:17.254Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "diagnosis": "Fever",
+  "prescription": {
+    "hasMedicines": true,
+    "medicines": [
+      {
+        "name": "dolo 650",
+        "timesPerDay": 2,
+        "timing": "after food",
+        "duration": "7 days",
+        "_id": {
+          "$oid": "699be35627998634deaa057a"
+        }
+      }
+    ],
+    "notes": "Drink plenty of water, Take rest"
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SJT6TBkVa7GwT2",
+  "razorpayPaymentId": "pay_SJT6i8AoFXVg2q",
+  "razorpaySignature": "738e6437736f02cd1a9b77ae5abcfe1237b4a577839a653e76a5ecbba64a2cb0",
+  "completedAt": {
+    "$date": "2026-02-23T05:19:18.624Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "699bf8f827998634deaa08fc"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "27_2_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "132456789",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 5,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "23_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "69989dd4068cd1d1cb1e77df"
+        }
+      },
+      {
+        "date": "24_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "699b242127998634dea9ff67"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1771829496006,
+  "status": "completed",
+  "paymentExpiresAt": {
+    "$date": "2026-02-23T06:52:36.006Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "patient",
+  "previousSlotDate": "25_2_2026",
+  "previousSlotTime": "11:20 am",
+  "diagnosis": "Fever",
+  "prescription": {
+    "hasMedicines": true,
+    "medicines": [
+      {
+        "name": "Dolo 650",
+        "timesPerDay": 2,
+        "timing": "after food",
+        "duration": "7 days",
+        "_id": {
+          "$oid": "699bf9d927998634deaa09d2"
+        }
+      }
+    ],
+    "notes": "Avoid cold drinks, Take rest"
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SJUj9hzIenkHB1",
+  "razorpayPaymentId": "pay_SJUjRryygFEQzq",
+  "razorpaySignature": "fa5cb495f1f11637bc8eac8d2643b0e36be9845da3e1610de77d87b9308663f4",
+  "completedAt": {
+    "$date": "2026-02-23T06:55:21.807Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69b6f664e95370163bfc55dd"
+  },
+  "userId": "6953acf98d0e2b6a60b2163d",
+  "docId": "69317c9dc89b4d61762f8d0a",
+  "slotDate": "16_3_2026",
+  "slotTime": "10:00 am",
+  "userData": {
+    "_id": {
+      "$oid": "6953acf98d0e2b6a60b2163d"
+    },
+    "name": "Abhinav",
+    "email": "pvac2005@gmail.com",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1768562724/fhzjgjgzpfs72haa3wmi.jpg",
+    "address": {
+      "line1": "abcd street",
+      "line2": "Nellore"
+    },
+    "gender": "Male",
+    "dob": "2010-07-13",
+    "phone": "132456789",
+    "__v": 0
+  },
+  "docData": {
+    "weeklySchedule": {
+      "monday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04dba"
+            }
+          }
+        ]
+      },
+      "tuesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "698ec042fe290ba747f04db9"
+            }
+          }
+        ]
+      },
+      "wednesday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b805"
+            }
+          }
+        ]
+      },
+      "thursday": {
+        "isWorking": false,
+        "timeSlots": []
+      },
+      "friday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b804"
+            }
+          }
+        ]
+      },
+      "saturday": {
+        "isWorking": true,
+        "timeSlots": [
+          {
+            "start": "10:00 AM",
+            "end": "1:00 PM",
+            "_id": {
+              "$oid": "6983726ef02698f0d2c1b803"
+            }
+          }
+        ]
+      },
+      "sunday": {
+        "isWorking": false,
+        "timeSlots": []
+      }
+    },
+    "_id": {
+      "$oid": "69317c9dc89b4d61762f8d0a"
+    },
+    "name": "Dr. Karthikeya",
+    "email": "22711a05a9@necn.ac.in",
+    "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+    "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+    "speciality": "General physician",
+    "degree": "MBBS",
+    "experience": "4 Year",
+    "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+    "available": true,
+    "fees": 350,
+    "address": {
+      "line1": "Dargamitta Road",
+      "line2": "Nellore, Andhra Pradesh"
+    },
+    "date": 1764850845490,
+    "__v": 5,
+    "isFirstLogin": false,
+    "advanceBookingDays": 14,
+    "blockedDates": [
+      {
+        "date": "23_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "69989dd4068cd1d1cb1e77df"
+        }
+      },
+      {
+        "date": "24_2_2026",
+        "reason": "Leave",
+        "_id": {
+          "$oid": "699b242127998634dea9ff67"
+        }
+      }
+    ],
+    "isScheduleConfirmed": true,
+    "slotDuration": 20
+  },
+  "amount": 350,
+  "date": 1773598308322,
+  "status": "expired",
+  "paymentExpiresAt": {
+    "$date": "2026-03-15T18:12:48.322Z"
+  },
+  "paymentStatus": "paid",
+  "cancelReason": "",
+  "rescheduleReason": "",
+  "cancelledBy": "",
+  "rescheduledBy": "",
+  "previousSlotDate": "",
+  "previousSlotTime": "",
+  "diagnosis": "",
+  "prescription": {
+    "hasMedicines": false,
+    "notes": "",
+    "medicines": []
+  },
+  "__v": 0,
+  "razorpayOrderId": "order_SRb081hWwSFSHv",
+  "razorpayPaymentId": "pay_SRb0VfvHNJvLc2",
+  "razorpaySignature": "548bb12d1f03281e9e8304e850fa5a2db96b417779e107b6d4895d65a22d9fe0"
+}]

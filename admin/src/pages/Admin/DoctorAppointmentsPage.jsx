@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { AdminContext } from '../../context/AdminContext'
 import { AppContext } from '../../context/AppContext'
+import getProfileImage from '../../utils/getProfileImage'
 
 const DoctorAppointmentsPage = () => {
 
@@ -14,7 +15,13 @@ const DoctorAppointmentsPage = () => {
     const [doctor, setDoctor] = useState(null)
     const [appointments, setAppointments] = useState([])
     const [loading, setLoading] = useState(true)
-    const [appointmentFilter, setAppointmentFilter] = useState('all')
+
+    const [activeFilter, setActiveFilter] = useState('all')
+    const [statusFilter, setStatusFilter] = useState('all')
+    const [searchTerm, setSearchTerm] = useState('')
+    const [fromDate, setFromDate] = useState('')
+    const [toDate, setToDate] = useState('')
+    const [specificDate, setSpecificDate] = useState('')
 
     // Fetch doctor data and appointments
     useEffect(() => {
@@ -56,49 +63,70 @@ const DoctorAppointmentsPage = () => {
         }
     }
 
+    const parseSlotDate = (slotDate) => {
+        const [day, month, year] = slotDate.split('_').map(Number)
+        return new Date(year, month - 1, day)
+    }
+
     // Filter appointments
     const getFilteredAppointments = () => {
+        let filtered = [...appointments].reverse()
         const today = new Date()
         today.setHours(0, 0, 0, 0)
 
-        const todayStr = `${today.getDate()}_${today.getMonth() + 1}_${today.getFullYear()}`
-
-        let filtered = [...appointments]
-
-        switch (appointmentFilter) {
+        // Main status filter buttons (All, Today, Upcoming)
+        switch (activeFilter) {
             case 'today':
-                filtered = appointments.filter(apt => apt.slotDate === todayStr && apt.status === 'confirmed')
-                break
-            case 'upcoming':
-                filtered = appointments.filter(apt => {
-                    if (apt.status !== 'confirmed') return false
-                    const [day, month, year] = apt.slotDate.split('_').map(Number)
-                    const aptDate = new Date(year, month - 1, day)
+                filtered = filtered.filter(apt => {
+                    const aptDate = parseSlotDate(apt.slotDate)
                     aptDate.setHours(0, 0, 0, 0)
-                    return aptDate >= today
-                })
-                break
-            case 'completed':
-                filtered = appointments.filter(apt => apt.status === 'completed')
-                break
-            case 'cancelled':
-                filtered = appointments.filter(apt => apt.status === 'cancelled')
-                break
-            case 'expired':
-                filtered = appointments.filter(apt => apt.status === 'expired')
-                break
-            default:
-                filtered = appointments
+                    return aptDate.getTime() === today.getTime() && apt.status === 'confirmed'
+                }); break
+            case 'upcoming':
+                filtered = filtered.filter(apt => {
+                    const aptDate = parseSlotDate(apt.slotDate)
+                    aptDate.setHours(0, 0, 0, 0)
+                    return aptDate.getTime() >= today.getTime() && apt.status === 'confirmed'
+                }); break
+            default: break
         }
 
-        // Sort by date (newest first)
-        return filtered.sort((a, b) => {
-            const [dayA, monthA, yearA] = a.slotDate.split('_').map(Number)
-            const [dayB, monthB, yearB] = b.slotDate.split('_').map(Number)
-            const dateA = new Date(yearA, monthA - 1, dayA)
-            const dateB = new Date(yearB, monthB - 1, dayB)
-            return dateB - dateA
-        })
+        // Dropdown status filter (completed, cancelled, expired)
+        if (activeFilter === 'all' && statusFilter !== 'all') {
+            filtered = filtered.filter(apt => apt.status === statusFilter)
+        }
+
+        // Specific date filter
+        if (specificDate) {
+            const target = new Date(specificDate)
+            target.setHours(0, 0, 0, 0)
+            filtered = filtered.filter(apt => {
+                const aptDate = parseSlotDate(apt.slotDate)
+                aptDate.setHours(0, 0, 0, 0)
+                return aptDate.getTime() === target.getTime()
+            })
+        }
+
+        // Date range filter
+        if (fromDate) {
+            const from = new Date(fromDate)
+            from.setHours(0, 0, 0, 0)
+            filtered = filtered.filter(apt => parseSlotDate(apt.slotDate) >= from)
+        }
+        if (toDate) {
+            const to = new Date(toDate)
+            to.setHours(23, 59, 59, 999)
+            filtered = filtered.filter(apt => parseSlotDate(apt.slotDate) <= to)
+        }
+
+        if (searchTerm.trim()) {
+            filtered = filtered.filter(apt =>
+                apt.userData?.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                apt.userData?.email?.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        }
+
+        return filtered
     }
 
     // Get status badge
@@ -168,6 +196,10 @@ const DoctorAppointmentsPage = () => {
 
     const stats = getStats()
     const filteredAppointments = getFilteredAppointments()
+
+    const hasDateFilter = fromDate || toDate
+    const clearDateFilter = () => { setFromDate(''); setToDate('') }
+    const clearSpecificDate = () => setSpecificDate('')
 
     // Loading state
     if (loading) {
@@ -281,29 +313,160 @@ const DoctorAppointmentsPage = () => {
                 </div>
             </div>
 
-            {/* Filter Tabs */}
-            <div className='bg-white rounded-xl shadow-sm p-4 mb-4'>
-                <div className='flex flex-wrap gap-2'>
-                    {[
-                        { key: 'all', label: 'All', count: stats.total, color: 'gray' },
-                        { key: 'today', label: 'Today', count: stats.today, color: 'yellow' },
-                        { key: 'upcoming', label: 'Upcoming', count: stats.upcoming, color: 'green' },
-                        { key: 'completed', label: 'Completed', count: stats.completed, color: 'blue' },
-                        { key: 'cancelled', label: 'Cancelled', count: stats.cancelled, color: 'red' },
-                        { key: 'expired', label: 'Expired', count: stats.expired, color: 'orange' }
-                    ].map(filter => (
-                        <button
-                            key={filter.key}
-                            onClick={() => setAppointmentFilter(filter.key)}
-                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${appointmentFilter === filter.key
-                                ? 'bg-primary text-white shadow-md'
-                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            {/* Filters & Search */}
+            <div className='bg-white rounded-xl shadow-sm p-4 mb-6'>
+                <div className='flex flex-col gap-4'>
+
+                    {/* Row 1: Status buttons + dropdown + search */}
+                    <div className='flex flex-wrap items-center gap-2'>
+
+                        {/* Main filter buttons: All, Today, Upcoming */}
+                        {[
+                            { key: 'all', label: 'All' },
+                            { key: 'today', label: 'Today' },
+                            { key: 'upcoming', label: 'Upcoming' },
+                        ].map(filter => (
+                            <button
+                                key={filter.key}
+                                onClick={() => { setActiveFilter(filter.key); if (filter.key !== 'all') setStatusFilter('all') }}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all
+                                    ${activeFilter === filter.key
+                                        ? 'bg-primary text-white shadow-md'
+                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                    }`}
+                            >
+                                {filter.label}
+                            </button>
+                        ))}
+
+                        {/* Divider */}
+                        <div className='w-px h-8 bg-gray-200 mx-1'></div>
+
+                        {/* Status dropdown: Completed, Cancelled, Expired */}
+                        <div className='relative'>
+                            <select
+                                value={activeFilter === 'all' ? statusFilter : 'all'}
+                                onChange={(e) => {
+                                    setActiveFilter('all')
+                                    setStatusFilter(e.target.value)
+                                }}
+                                disabled={activeFilter !== 'all'}
+                                className={`pl-4 pr-8 py-2 rounded-lg text-sm font-medium border transition-all appearance-none cursor-pointer
+                                    ${activeFilter === 'all' && statusFilter !== 'all'
+                                        ? 'bg-primary text-white border-primary shadow-md'
+                                        : activeFilter !== 'all'
+                                            ? 'bg-gray-50 text-gray-400 border-gray-200 cursor-not-allowed'
+                                            : 'bg-gray-100 text-gray-600 border-gray-100 hover:bg-gray-200'
+                                    }`}
+                            >
+                                <option value='all'>Status Filter</option>
+                                <option value='completed'>Completed</option>
+                                <option value='cancelled'>Cancelled</option>
+                                <option value='expired'>Expired</option>
+                            </select>
+                            <svg className={`absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none ${activeFilter === 'all' && statusFilter !== 'all' ? 'text-white' : 'text-gray-400'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
+                            </svg>
+                        </div>
+
+                        {/* Search — pushed to right */}
+                        <div className='relative ml-auto'>
+                            <input
+                                type='text'
+                                placeholder='Search patient...'
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className='pl-10 pr-4 py-2 border border-gray-300 rounded-lg w-full lg:w-48 xl:w-72 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm'
+                            />
+                            <svg className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' />
+                            </svg>
+                        </div>
+                    </div>
+
+                    {/* Row 2: Specific date + Date range filter */}
+                    <div className='flex flex-wrap items-center gap-3'>
+
+                        {/* Specific Date */}
+                        <span className='text-sm font-medium text-gray-500 flex items-center gap-1'>
+                            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                            </svg>
+                            Specific Date:
+                        </span>
+                        <input
+                            type='date'
+                            value={specificDate}
+                            onChange={(e) => { setSpecificDate(e.target.value); if (e.target.value) { setFromDate(''); setToDate('') } }}
+                            className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary ${specificDate ? 'border-primary bg-primary/5' : 'border-gray-300'
                                 }`}
-                        >
-                            {filter.label} ({filter.count})
-                        </button>
-                    ))}
+                        />
+                        {specificDate && (
+                            <button
+                                onClick={clearSpecificDate}
+                                className='flex items-center gap-1.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-all border border-red-200'
+                            >
+                                <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
+                                </svg>
+                                Clear
+                            </button>
+                        )}
+
+                        {/* Divider */}
+                        <div className='w-px h-8 bg-gray-200 mx-1'></div>
+
+                        {/* Date Range */}
+                        <span className='text-sm font-medium text-gray-500 flex items-center gap-1'>
+                            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                            </svg>
+                            Date Range:
+                        </span>
+                        <input
+                            type='date'
+                            value={fromDate}
+                            onChange={(e) => { setFromDate(e.target.value); if (e.target.value) setSpecificDate('') }}
+                            className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary'
+                        />
+                        <span className='text-gray-400 text-sm'>to</span>
+                        <input
+                            type='date'
+                            value={toDate}
+                            min={fromDate}
+                            onChange={(e) => { setToDate(e.target.value); if (e.target.value) setSpecificDate('') }}
+                            className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary'
+                        />
+                        {hasDateFilter && (
+                            <button
+                                onClick={clearDateFilter}
+                                className='flex items-center gap-1.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-all border border-red-200'
+                            >
+                                <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
+                                </svg>
+                                Clear
+                            </button>
+                        )}
+                    </div>
                 </div>
+            </div>
+
+            {/* Appointments Count Optional Text */}
+            <div className='mb-4'>
+                <p className='text-sm text-gray-500'>
+                    Showing <span className='font-semibold text-gray-700'>{filteredAppointments.length}</span> appointments
+                    {specificDate && (
+                        <span className='text-primary ml-1'>
+                            for {new Date(specificDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </span>
+                    )}
+                    {hasDateFilter && fromDate && toDate && (
+                        <span className='text-primary ml-1'>
+                            from {new Date(fromDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} to {new Date(toDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        </span>
+                    )}
+                </p>
             </div>
 
             {/* Appointments List */}
@@ -325,7 +488,7 @@ const DoctorAppointmentsPage = () => {
 
                                 {/* Patient Image */}
                                 <img
-                                    src={appointment.userData?.image}
+                                    src={getProfileImage(appointment.userData?.image)}
                                     alt={appointment.userData?.name}
                                     className='w-16 h-16 rounded-xl object-cover border-2 border-gray-100'
                                 />
@@ -396,12 +559,6 @@ const DoctorAppointmentsPage = () => {
                 </div>
             )}
 
-            {/* Results Count */}
-            {filteredAppointments.length > 0 && (
-                <div className='mt-4 text-center text-sm text-gray-500'>
-                    Showing {filteredAppointments.length} of {stats.total} appointments
-                </div>
-            )}
         </div>
     )
 }

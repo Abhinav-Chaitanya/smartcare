@@ -1,0 +1,1316 @@
+[{
+  "_id": {
+    "$oid": "69317c9dc89b4d61762f8d0a"
+  },
+  "name": "Dr. Karthikeya",
+  "email": "22711a05a9@necn.ac.in",
+  "password": "$2b$10$4ZdVeUrp/8rMkGaaUy8jWe/xjg0OYJl5KIx0VV5wL5sJ4lUDlHA6K",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764850836/nejvlgixnct1imecbubz.png",
+  "speciality": "General physician",
+  "degree": "MBBS",
+  "experience": "4 Year",
+  "about": "Dr. Karthik is a trusted general physician in Nellore, focused on preventive care and practical treatment plans.",
+  "available": true,
+  "fees": 350,
+  "address": {
+    "line1": "Dargamitta Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764850845490"
+  },
+  "slots_booked": {
+    "1_1_2026": [],
+    "2_1_2026": [],
+    "5_1_2026": [],
+    "7_1_2026": [
+      "10:00 am",
+      "10:20 am"
+    ],
+    "3_1_2026": [
+      "4:40 pm",
+      "6:00 pm",
+      "6:20 pm",
+      "6:40 pm",
+      "7:00 pm",
+      "7:20 pm",
+      "7:40 pm",
+      "8:00 pm",
+      "8:20 pm",
+      "8:40 pm"
+    ],
+    "4_1_2026": [
+      "10:00 am"
+    ],
+    "8_1_2026": [
+      "10:00 am",
+      "12:00 pm"
+    ],
+    "9_1_2026": [
+      "12:00 pm"
+    ],
+    "11_1_2026": [
+      "10:20 am"
+    ],
+    "20_1_2026": [
+      "10:00 am",
+      "6:00 pm"
+    ],
+    "21_1_2026": [
+      "10:00 am"
+    ],
+    "22_1_2026": [
+      "10:00 am"
+    ],
+    "29_1_2026": [
+      "10:00 am",
+      "10:20 am"
+    ],
+    "23_1_2026": [
+      "6:00 pm"
+    ],
+    "27_1_2026": [
+      "10:00 am"
+    ],
+    "30_1_2026": [
+      "10:00 am",
+      "7:40 pm"
+    ],
+    "31_1_2026": [
+      "10:00 am"
+    ],
+    "1_2_2026": [
+      "6:00 pm"
+    ],
+    "2_2_2026": [
+      "10:00 am"
+    ],
+    "3_2_2026": [
+      "10:00 am"
+    ],
+    "7_2_2026": [
+      "10:00 am",
+      "10:40 am",
+      "12:00 pm"
+    ],
+    "6_2_2026": [
+      "10:00 am"
+    ],
+    "11_2_2026": [
+      "10:00 am"
+    ],
+    "13_2_2026": [
+      "10:00 am",
+      "10:20 am"
+    ],
+    "14_2_2026": [
+      "10:00 am"
+    ],
+    "20_2_2026": [
+      "10:00 am"
+    ],
+    "21_2_2026": [
+      "10:00 am"
+    ],
+    "24_2_2026": [
+      "10:20 am"
+    ],
+    "25_2_2026": [
+      "10:00 am",
+      "10:20 am"
+    ],
+    "27_2_2026": [
+      "10:00 am"
+    ],
+    "16_3_2026": [
+      "10:00 am"
+    ]
+  },
+  "__v": 5,
+  "isFirstLogin": false,
+  "advanceBookingDays": 14,
+  "blockedDates": [
+    {
+      "date": "23_2_2026",
+      "reason": "Leave",
+      "_id": {
+        "$oid": "69989dd4068cd1d1cb1e77df"
+      }
+    },
+    {
+      "date": "24_2_2026",
+      "reason": "Leave",
+      "_id": {
+        "$oid": "699b242127998634dea9ff67"
+      }
+    }
+  ],
+  "isScheduleConfirmed": true,
+  "slotDuration": 15,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "698ec042fe290ba747f04dba"
+          }
+        }
+      ]
+    },
+    "tuesday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "698ec042fe290ba747f04db9"
+          }
+        }
+      ]
+    },
+    "wednesday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "6983726ef02698f0d2c1b805"
+          }
+        }
+      ]
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "6983726ef02698f0d2c1b804"
+          }
+        }
+      ]
+    },
+    "saturday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "6983726ef02698f0d2c1b803"
+          }
+        }
+      ]
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "69317d3ac89b4d61762f8d0c"
+  },
+  "name": "Dr. Sridevi",
+  "email": "22711a05a9+1@necn.ac.in",
+  "password": "$2b$10$ZHwSUww7hnMe59KATSD7nOtk0T7uxaV.VbxfBDw8Mfq5OROicPsGi",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764851001/qcoj9hx1amd4hqgmrqtf.png",
+  "speciality": "Gynecologist",
+  "degree": "MBBS, MD",
+  "experience": "6 Year",
+  "about": "Dr. Sridevi specialises in women’s health and prenatal care with a compassionate approach.",
+  "available": true,
+  "fees": 500,
+  "address": {
+    "line1": "Kothapeta Main Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764851002573"
+  },
+  "slots_booked": {
+    "1_1_2026": [
+      "10:00",
+      "10:30",
+      "11:00",
+      "13:00"
+    ],
+    "3_1_2026": [
+      "6:00 pm",
+      "6:20 pm",
+      "6:40 pm",
+      "7:00 pm",
+      "7:20 pm",
+      "7:40 pm"
+    ],
+    "9_1_2026": [
+      "2:20 pm"
+    ],
+    "2_2_2026": [
+      "10:00 am"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": false,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "693181f6c89b4d61762f8d0e"
+  },
+  "name": "Dr. Praveen Kumar",
+  "email": "praveenkumar@smartcare.com",
+  "password": "$2b$10$PDBTExdJ9K8TsrL4q2GRI.ZBcI5SOeIrEsK.M..tQ2fIe.zuMOqXK",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764852213/yw03rrkxunzmd6h1u3ii.png",
+  "speciality": "Dermatologist",
+  "degree": "MBBS, DDVL",
+  "experience": "8 Year",
+  "about": "Dr. Praveen treats a wide range of skin conditions and advises patients on long-term skin health.",
+  "available": true,
+  "fees": 500,
+  "address": {
+    "line1": "DPS Road (Near Bus Stand)",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764852214919"
+  },
+  "slots_booked": {
+    "1_1_2026": [
+      "16:30",
+      "20:00"
+    ],
+    "2_1_2026": [],
+    "6_1_2026": [
+      "10:00 am"
+    ],
+    "7_1_2026": [
+      "10:00 am"
+    ],
+    "3_1_2026": [
+      "4:20 pm"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": false,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": true,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "69822c0e21ccd0137d35bec0"
+          }
+        },
+        {
+          "start": "2:00 PM",
+          "end": "5:00 PM",
+          "_id": {
+            "$oid": "69822c0e21ccd0137d35bec1"
+          }
+        }
+      ]
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "69822c0e21ccd0137d35bebe"
+          }
+        },
+        {
+          "start": "2:00 PM",
+          "end": "5:00 PM",
+          "_id": {
+            "$oid": "69822c0e21ccd0137d35bebf"
+          }
+        }
+      ]
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "69822c0e21ccd0137d35bebd"
+          }
+        }
+      ]
+    },
+    "saturday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "69822c0e21ccd0137d35bebb"
+          }
+        },
+        {
+          "start": "2:00 PM",
+          "end": "5:00 PM",
+          "_id": {
+            "$oid": "69822c0e21ccd0137d35bebc"
+          }
+        }
+      ]
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931b3a7c89b4d61762f8d10"
+  },
+  "name": "Dr. Hema Latha",
+  "email": "hemalatha@smartcare.com",
+  "password": "$2b$10$liCg2Xudz34K2XC7xiQ/KODVr8X.lO8P9Ht2Fe7E/X6aBw5D1jaou",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764864933/tzak3cejinbphtwu1cxt.png",
+  "speciality": "Pediatricians",
+  "degree": "MBBS, DCH",
+  "experience": "5 Year",
+  "about": "Dr. Hema provides gentle, evidence-based care for infants and children across Nellore.",
+  "available": true,
+  "fees": 400,
+  "address": {
+    "line1": "Allipuram Street",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764864935945"
+  },
+  "slots_booked": {},
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931b490c89b4d61762f8d12"
+  },
+  "name": "Dr. Srinivasa Rao",
+  "email": "srinivasarao@smartcare.com",
+  "password": "$2b$10$Kmr8KBuiUnbxIpg.3v1RIuo35QqLRX4WkJ4ilLHbE1hRa1EQC8rES",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764865167/u33hsqvpc6dpvcw3sogl.png",
+  "speciality": "Neurologist",
+  "degree": "MBBS, DM (Neuro)",
+  "experience": "9 Year",
+  "about": "Dr. Srinivasa focuses on diagnosing and managing neurologic conditions with patient-centered care.",
+  "available": true,
+  "fees": 600,
+  "address": {
+    "line1": "Venkatagiri Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764865168424"
+  },
+  "slots_booked": {
+    "3_1_2026": [
+      "4:20 pm"
+    ],
+    "7_1_2026": [
+      "2:20 pm",
+      "3:00 pm"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c122c89b4d61762f8d14"
+  },
+  "name": "Dr. Sudhakar Reddy",
+  "email": "sudhakarreddy@smartcare.com",
+  "password": "$2b$10$oMpNNPL/qvfal9xkfr5iOOD07w9b2ibY7pKTeLjInV2Yehf7jouCu",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764868384/kmbamx4ltsasy1ecmess.png",
+  "speciality": "General physician",
+  "degree": "MBBS",
+  "experience": "3 Year",
+  "about": "Dr. Sudhakar offers practical primary care and lifestyle advice tailored to each patient.",
+  "available": true,
+  "fees": 400,
+  "address": {
+    "line1": "Bharat Nagar",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764868386452"
+  },
+  "slots_booked": {
+    "9_1_2026": [
+      "10:00 am"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c1c5c89b4d61762f8d16"
+  },
+  "name": "Dr. Naga Venkata",
+  "email": "nagavenkata@smartcare.com",
+  "password": "$2b$10$6cDXM8wixnxFGJKANjFEq.x8SYErK8ijWEcLv3.urHC8rk8WRVcKq",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764868547/kxv3yzrueaffclgq3acb.png",
+  "speciality": "Gastroenterologist",
+  "degree": "MBBS, DM (Gastro)",
+  "experience": "7 Year",
+  "about": "Dr. Naga specialises in digestive health and advanced endoscopic procedures in Nellore.",
+  "available": true,
+  "fees": 600,
+  "address": {
+    "line1": "Krishna Nagar Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764868549263"
+  },
+  "slots_booked": {
+    "2_1_2026": [],
+    "4_1_2026": [
+      "11:00 am"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c267c89b4d61762f8d18"
+  },
+  "name": "Dr. Geetha Devi",
+  "email": "geethadevi@smartcare.com",
+  "password": "$2b$10$pg0HFZyXb8SGbIy.AqeBs.Z6evCz8kINawk4.SGwFEJeaF.3ewpy.",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764868710/yio9ftkt7saqzdxbuyb2.png",
+  "speciality": "Dermatologist",
+  "degree": "MBBS, MD (Dermatology)",
+  "experience": "4 Year",
+  "about": "Dr. Geetha is experienced in cosmetic and medical dermatology with a strong local practice.",
+  "available": true,
+  "fees": 400,
+  "address": {
+    "line1": "Gandhi Nagar Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764868711810"
+  },
+  "slots_booked": {},
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c302c89b4d61762f8d1a"
+  },
+  "name": "Dr. Rajasekhar",
+  "email": "rajasekhar@smartcare.com",
+  "password": "$2b$10$TtE3XkrukoN.K69Xtu.d2Om1TBmpwNtv5/fI2nZp2HLyV57AD9PiO",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764868865/z9rnfk5mp4j8o4izun7b.png",
+  "speciality": "Pediatricians",
+  "degree": "MBBS, DCH",
+  "experience": "6 Year",
+  "about": "Dr. Rajasekhar focuses on healthy growth and development, offering clear guidance to parents.",
+  "available": true,
+  "fees": 400,
+  "address": {
+    "line1": "Ram Nagar",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764868866506"
+  },
+  "slots_booked": {},
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c3bac89b4d61762f8d1c"
+  },
+  "name": "Dr. Padmaja",
+  "email": "padmaja@smartcare.com",
+  "password": "$2b$10$t8MVXg119tUJqKVnFoe2jOteGUmfJGPzAyFnzXGY3WLvFkHbN6rDi",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764869048/raungwdoqxhovpebcjlz.png",
+  "speciality": "Gynecologist",
+  "degree": "MBBS, MS",
+  "experience": "7 Year",
+  "about": "'Dr. Padmaja has wide experience in gynecological care and surgical procedures with gentle bedside manner.",
+  "available": true,
+  "fees": 500,
+  "address": {
+    "line1": "Govindha Nagar",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764869050300"
+  },
+  "slots_booked": {
+    "4_1_2026": [
+      "10:30"
+    ],
+    "9_1_2026": []
+  },
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c5a7c89b4d61762f8d1e"
+  },
+  "name": "Dr. Venkatesh",
+  "email": "venkatesh@smartcare.com",
+  "password": "$2b$10$MrXekRmhKzgV.gd5E.x4E.29kKYotKbkpr.XKXf.k8TuDq2OZU7iO",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764869542/qpzme6efgqmhoaqseyba.png",
+  "speciality": "General physician",
+  "degree": "MBBS",
+  "experience": "4 Year",
+  "about": "Dr. Venkatesh emphasises preventive care and practical treatment plans for families in Nellore.",
+  "available": true,
+  "fees": 300,
+  "address": {
+    "line1": "Ganesh Street",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764869543612"
+  },
+  "slots_booked": {
+    "3_1_2026": [
+      "10:30",
+      "10:00 am"
+    ],
+    "4_1_2026": [
+      "10:00 am"
+    ],
+    "9_1_2026": [
+      "10:00 am"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c675c89b4d61762f8d20"
+  },
+  "name": "Dr. Srikanth",
+  "email": "srikanth@smartcare.com",
+  "password": "$2b$10$Z3d54AoEzGiZpV10wA0w2OpVnIXpJcXQREr1/8wGsvWmw0N/H6okm",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764869747/u2p5ohbxkphwyiewsqgd.png",
+  "speciality": "Gastroenterologist",
+  "degree": "MBBS, MD (Gastro)",
+  "experience": "8 Year",
+  "about": "Dr. Srikanth provides careful diagnosis and treatment for gastrointestinal and liver conditions.",
+  "available": true,
+  "fees": 500,
+  "address": {
+    "line1": "Green City Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764869749631"
+  },
+  "slots_booked": {
+    "3_1_2026": [
+      "11:00",
+      "13:30"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c6f1c89b4d61762f8d22"
+  },
+  "name": "Dr. Narayana",
+  "email": "narayana@smartcare.com",
+  "password": "$2b$10$tCmSGzmIWF.Eu..sUNZQrOCCo29kC3VnaM1x04/Xb4PLWP8tRZTO2",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764869872/b8r8eln8mpnglvsamzka.png",
+  "speciality": "Neurologist",
+  "degree": "MBBS, DM (Neuro)",
+  "experience": "10 Year",
+  "about": "Dr. Narayana treats headaches, epilepsy and neurodegenerative disorders with empathy and skill.",
+  "available": true,
+  "fees": 600,
+  "address": {
+    "line1": "Ramesh Nagar",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764869873900"
+  },
+  "slots_booked": {
+    "6_1_2026": [
+      "10:30"
+    ],
+    "7_1_2026": [
+      "12:00"
+    ]
+  },
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c76ec89b4d61762f8d24"
+  },
+  "name": "Dr. Chandra Sekhar",
+  "email": "chandrasekhar@smartcare.com",
+  "password": "$2b$10$VltxtYxx.Mc52Ot5qGE4/eVbh4URl1u9y2rYljhWHoMF9lsNEB7Um",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764869996/dhm7vznd1ahhhatpl8xj.png",
+  "speciality": "Dermatologist",
+  "degree": "MBBS, DDVL",
+  "experience": "6 Year",
+  "about": "Dr. Chandra is experienced in acne, skin surgery, and cosmetic dermatology for local patients.",
+  "available": true,
+  "fees": 400,
+  "address": {
+    "line1": "Station Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764869998640"
+  },
+  "slots_booked": {},
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "6931c7ecc89b4d61762f8d26"
+  },
+  "name": "Dr. Lakshmi Devi",
+  "email": "lakshmidevi@smartcare.com",
+  "password": "$2b$10$mXEGpzvuv.bT.nBBuqFCH.LRgSKxNosZ6rQWVPFUo.BeTrFISFI1K",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1764870122/lxvmve2sup2onyx3gkmt.png",
+  "speciality": "Gynecologist",
+  "degree": "MBBS, MD (OBG)",
+  "experience": "6 Year",
+  "about": "Dr. Lakshmi focuses on women’s wellness and safe maternity care in Nellore.",
+  "available": true,
+  "fees": 499,
+  "address": {
+    "line1": "Market Road",
+    "line2": "Nellore, Andhra Pradesh"
+  },
+  "date": {
+    "$numberLong": "1764870124326"
+  },
+  "slots_booked": {},
+  "__v": 0,
+  "isFirstLogin": true,
+  "advanceBookingDays": 7,
+  "blockedDates": [],
+  "isScheduleConfirmed": false,
+  "slotDuration": 20,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "tuesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "wednesday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "thursday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "friday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "blockedReason": "",
+  "isBlocked": false
+},
+{
+  "_id": {
+    "$oid": "699bfb3227998634deaa0af5"
+  },
+  "name": "Ram",
+  "email": "22711a05a9+1234@necn.ac.in",
+  "password": "$2b$10$VfXGADPH/VCLXzFm13C8CeeQbSufY0NKucqc70g/AX4hItfobxj3i",
+  "image": "https://res.cloudinary.com/djdcnxlat/image/upload/v1771830066/bdd2pri4rmy2rqmsokgw.png",
+  "speciality": "Def",
+  "degree": "MBBs",
+  "experience": "4 Years",
+  "about": "dvdsvfv",
+  "available": true,
+  "fees": 299,
+  "address": {
+    "line1": "St n1",
+    "line2": "Nellore"
+  },
+  "date": 1771830066877,
+  "isFirstLogin": false,
+  "isScheduleConfirmed": true,
+  "weeklySchedule": {
+    "monday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "699bfb3227998634deaa0af6"
+          }
+        }
+      ]
+    },
+    "tuesday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "699bfb3227998634deaa0af7"
+          }
+        }
+      ]
+    },
+    "wednesday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "699bfb3227998634deaa0af8"
+          }
+        }
+      ]
+    },
+    "thursday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "699bfb3227998634deaa0af9"
+          }
+        }
+      ]
+    },
+    "friday": {
+      "isWorking": true,
+      "timeSlots": [
+        {
+          "start": "10:00 AM",
+          "end": "1:00 PM",
+          "_id": {
+            "$oid": "699bfb8b27998634deaa0b27"
+          }
+        },
+        {
+          "start": "3:00 PM",
+          "end": "6:00 PM",
+          "_id": {
+            "$oid": "699bfb8b27998634deaa0b28"
+          }
+        }
+      ]
+    },
+    "saturday": {
+      "isWorking": false,
+      "timeSlots": []
+    },
+    "sunday": {
+      "isWorking": false,
+      "timeSlots": []
+    }
+  },
+  "slotDuration": 20,
+  "advanceBookingDays": 14,
+  "slots_booked": {},
+  "blockedDates": [],
+  "__v": 0,
+  "blockedReason": "",
+  "isBlocked": false
+}]

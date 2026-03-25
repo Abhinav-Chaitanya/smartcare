@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AdminContext } from '../../context/AdminContext'
+import getProfileImage from '../../utils/getProfileImage'
 
 const PatientsList = () => {
 
@@ -22,20 +23,16 @@ const PatientsList = () => {
         setLoading(false)
     }
 
-    // Filter patients based on search
-    const filteredPatients = patients.filter(patient => 
+    const filteredPatients = patients.filter(patient =>
         patient.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         patient.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
         patient.phone.includes(searchTerm)
     )
 
-    // Format date
     const formatDate = (timestamp) => {
         if (!timestamp) return 'N/A'
         return new Date(timestamp).toLocaleDateString('en-IN', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric'
+            day: 'numeric', month: 'short', year: 'numeric'
         })
     }
 
@@ -51,7 +48,7 @@ const PatientsList = () => {
             {/* Search & Stats Bar */}
             <div className='bg-white rounded-xl shadow-sm p-4 mb-6'>
                 <div className='flex flex-col sm:flex-row gap-4 justify-between items-center'>
-                    
+
                     {/* Search */}
                     <div className='relative w-full sm:w-80'>
                         <input
@@ -99,15 +96,15 @@ const PatientsList = () => {
             ) : (
                 <div className='grid gap-4'>
                     {filteredPatients.map((patient, index) => (
-                        <div 
+                        <div
                             key={index}
                             className='bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-all'
                         >
                             <div className='flex flex-col sm:flex-row items-start sm:items-center gap-4'>
-                                
+
                                 {/* Patient Image */}
-                                <img 
-                                    src={patient.image} 
+                                <img
+                                    src={getProfileImage(patient.image)}
                                     alt={patient.name}
                                     className='w-16 h-16 rounded-xl object-cover border-2 border-gray-100'
                                 />

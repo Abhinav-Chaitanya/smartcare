@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { AdminContext } from '../../context/AdminContext'
 import { AppContext } from '../../context/AppContext'
+import getProfileImage from '../../utils/getProfileImage'
 
 const PatientDetail = () => {
 
@@ -16,7 +17,11 @@ const PatientDetail = () => {
     const [stats, setStats] = useState(null)
     const [loading, setLoading] = useState(true)
     const [activeTab, setActiveTab] = useState('details')
-    const [appointmentFilter, setAppointmentFilter] = useState('all')
+    const [activeFilter, setActiveFilter] = useState('all')
+    const [statusFilter, setStatusFilter] = useState('all')
+    const [fromDate, setFromDate] = useState('')
+    const [toDate, setToDate] = useState('')
+    const [specificDate, setSpecificDate] = useState('')
 
     useEffect(() => {
         if (aToken && patientId) {
@@ -35,81 +40,106 @@ const PatientDetail = () => {
         setLoading(false)
     }
 
-    // Filter appointments
-    const getFilteredAppointments = () => {
-        if (appointmentFilter === 'all') return appointments
-        return appointments.filter(apt => apt.status === appointmentFilter)
+    const parseSlotDate = (slotDate) => {
+        const [day, month, year] = slotDate.split('_').map(Number)
+        return new Date(year, month - 1, day)
     }
 
-    // Calculate age
+    const getFilteredAppointments = () => {
+        let filtered = [...appointments].reverse()
+        const today = new Date()
+        today.setHours(0, 0, 0, 0)
+
+        // Main status filter buttons (All, Today, Upcoming)
+        switch (activeFilter) {
+            case 'today':
+                filtered = filtered.filter(apt => {
+                    const aptDate = parseSlotDate(apt.slotDate)
+                    aptDate.setHours(0, 0, 0, 0)
+                    return aptDate.getTime() === today.getTime() && apt.status === 'confirmed'
+                }); break
+            case 'upcoming':
+                filtered = filtered.filter(apt => {
+                    const aptDate = parseSlotDate(apt.slotDate)
+                    aptDate.setHours(0, 0, 0, 0)
+                    return aptDate.getTime() >= today.getTime() && apt.status === 'confirmed'
+                }); break
+            default: break
+        }
+
+        // Dropdown status filter (completed, cancelled, expired)
+        if (activeFilter === 'all' && statusFilter !== 'all') {
+            filtered = filtered.filter(apt => apt.status === statusFilter)
+        }
+
+        // Specific date filter
+        if (specificDate) {
+            const target = new Date(specificDate)
+            target.setHours(0, 0, 0, 0)
+            filtered = filtered.filter(apt => {
+                const aptDate = parseSlotDate(apt.slotDate)
+                aptDate.setHours(0, 0, 0, 0)
+                return aptDate.getTime() === target.getTime()
+            })
+        }
+
+        // Date range filter
+        if (fromDate) {
+            const from = new Date(fromDate)
+            from.setHours(0, 0, 0, 0)
+            filtered = filtered.filter(apt => parseSlotDate(apt.slotDate) >= from)
+        }
+        if (toDate) {
+            const to = new Date(toDate)
+            to.setHours(23, 59, 59, 999)
+            filtered = filtered.filter(apt => parseSlotDate(apt.slotDate) <= to)
+        }
+
+        return filtered
+    }
+
     const calculateAge = (dob) => {
         if (!dob || dob === 'Not Selected') return 'N/A'
         const today = new Date()
         const birthDate = new Date(dob)
         let age = today.getFullYear() - birthDate.getFullYear()
         const monthDiff = today.getMonth() - birthDate.getMonth()
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-            age--
-        }
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) age--
         return age + ' years'
     }
 
-    // Get status badge
     const getStatusBadge = (status) => {
         const config = {
             confirmed: {
-                bg: 'bg-green-100',
-                text: 'text-green-700',
-                label: 'Confirmed',
-                icon: (
-                    <svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='3' d='M5 13l4 4L19 7' />
-                    </svg>
-                )
+                bg: 'bg-green-100', text: 'text-green-700', label: 'Confirmed',
+                icon: (<svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='3' d='M5 13l4 4L19 7' /></svg>)
             },
             completed: {
-                bg: 'bg-blue-100',
-                text: 'text-blue-700',
-                label: 'Completed',
-                icon: (
-                    <svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='3' d='M5 13l4 4L19 7' />
-                    </svg>
-                )
+                bg: 'bg-blue-100', text: 'text-blue-700', label: 'Completed',
+                icon: (<svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='3' d='M5 13l4 4L19 7' /></svg>)
             },
             cancelled: {
-                bg: 'bg-red-100',
-                text: 'text-red-700',
-                label: 'Cancelled',
-                icon: (
-                    <svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' />
-                    </svg>
-                )
+                bg: 'bg-red-100', text: 'text-red-700', label: 'Cancelled',
+                icon: (<svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' /></svg>)
             },
             expired: {
-                bg: 'bg-orange-100',
-                text: 'text-orange-700',
-                label: 'Expired',
-                icon: (
-                    <svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' />
-                    </svg>
-                )
+                bg: 'bg-orange-100', text: 'text-orange-700', label: 'Expired',
+                icon: (<svg className='w-3 h-3' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' /></svg>)
             }
         }
-
         const { bg, text, label, icon } = config[status] || config.confirmed
-
         return (
             <span className={`${bg} ${text} px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 w-fit`}>
-                {icon}
-                {label}
+                {icon}{label}
             </span>
         )
     }
 
     const filteredAppointments = getFilteredAppointments()
+
+    const hasDateFilter = fromDate || toDate
+    const clearDateFilter = () => { setFromDate(''); setToDate('') }
+    const clearSpecificDate = () => setSpecificDate('')
 
     if (loading) {
         return (
@@ -132,13 +162,8 @@ const PatientDetail = () => {
                         </svg>
                     </div>
                     <h3 className='text-xl font-semibold text-gray-700 mb-2'>Patient Not Found</h3>
-                    <button
-                        onClick={() => navigate('/patients-list')}
-                        className='text-purple-600 font-medium hover:underline flex items-center gap-1 justify-center'
-                    >
-                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 19l-7-7m0 0l7-7m-7 7h18' />
-                        </svg>
+                    <button onClick={() => navigate('/patients-list')} className='text-purple-600 font-medium hover:underline flex items-center gap-1 justify-center'>
+                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 19l-7-7m0 0l7-7m-7 7h18' /></svg>
                         Back to Patients List
                     </button>
                 </div>
@@ -150,10 +175,7 @@ const PatientDetail = () => {
         <div className='w-full max-w-6xl m-5'>
 
             {/* Back Button */}
-            <button
-                onClick={() => navigate('/patients-list')}
-                className='flex items-center gap-2 text-gray-600 hover:text-purple-600 mb-6 transition-all group'
-            >
+            <button onClick={() => navigate('/patients-list')} className='flex items-center gap-2 text-gray-600 hover:text-purple-600 mb-6 transition-all group'>
                 <svg className='w-5 h-5 group-hover:-translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 19l-7-7m0 0l7-7m-7 7h18' />
                 </svg>
@@ -164,8 +186,8 @@ const PatientDetail = () => {
             <div className='bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden mb-6'>
                 <div className='p-6 bg-gradient-to-r from-purple-50 to-blue-50'>
                     <div className='flex flex-col sm:flex-row items-start sm:items-center gap-6'>
-                        <img 
-                            src={patient.image} 
+                        <img
+                            src={getProfileImage(patient.image)}
                             alt={patient.name}
                             className='w-24 h-24 rounded-xl object-cover border-4 border-white shadow-md'
                         />
@@ -250,7 +272,6 @@ const PatientDetail = () => {
 
             {/* Tab Content */}
             {activeTab === 'details' ? (
-                /* Patient Details Tab */
                 <div className='bg-white rounded-2xl shadow-sm border border-gray-100 p-6'>
                     <h2 className='text-lg font-bold text-gray-800 mb-6 flex items-center gap-2'>
                         <svg className='w-5 h-5 text-purple-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
@@ -262,29 +283,21 @@ const PatientDetail = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         <div className='space-y-4'>
                             <div className='flex items-start gap-3 p-4 bg-gray-50 rounded-xl'>
-                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' />
-                                </svg>
+                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' /></svg>
                                 <div>
                                     <p className='text-xs text-gray-400 uppercase font-medium'>Full Name</p>
                                     <p className='text-sm font-semibold text-gray-800'>{patient.name}</p>
                                 </div>
                             </div>
-
                             <div className='flex items-start gap-3 p-4 bg-gray-50 rounded-xl'>
-                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' />
-                                </svg>
+                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' /></svg>
                                 <div>
                                     <p className='text-xs text-gray-400 uppercase font-medium'>Email Address</p>
                                     <p className='text-sm font-semibold text-gray-800'>{patient.email}</p>
                                 </div>
                             </div>
-
                             <div className='flex items-start gap-3 p-4 bg-gray-50 rounded-xl'>
-                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' />
-                                </svg>
+                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z' /></svg>
                                 <div>
                                     <p className='text-xs text-gray-400 uppercase font-medium'>Phone Number</p>
                                     <p className='text-sm font-semibold text-gray-800'>{patient.phone}</p>
@@ -294,9 +307,7 @@ const PatientDetail = () => {
 
                         <div className='space-y-4'>
                             <div className='flex items-start gap-3 p-4 bg-gray-50 rounded-xl'>
-                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
-                                </svg>
+                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' /></svg>
                                 <div>
                                     <p className='text-xs text-gray-400 uppercase font-medium'>Date of Birth</p>
                                     <p className='text-sm font-semibold text-gray-800'>
@@ -307,11 +318,8 @@ const PatientDetail = () => {
                                     </p>
                                 </div>
                             </div>
-
                             <div className='flex items-start gap-3 p-4 bg-gray-50 rounded-xl'>
-                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' />
-                                </svg>
+                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' /></svg>
                                 <div>
                                     <p className='text-xs text-gray-400 uppercase font-medium'>Gender</p>
                                     <p className='text-sm font-semibold text-gray-800 capitalize'>
@@ -319,16 +327,12 @@ const PatientDetail = () => {
                                     </p>
                                 </div>
                             </div>
-
                             <div className='flex items-start gap-3 p-4 bg-gray-50 rounded-xl'>
-                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' />
-                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z' />
-                                </svg>
+                                <svg className='w-5 h-5 text-gray-400 mt-0.5' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' /><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z' /></svg>
                                 <div>
                                     <p className='text-xs text-gray-400 uppercase font-medium'>Address</p>
                                     <p className='text-sm font-semibold text-gray-800'>
-                                        {patient.address?.line1 || patient.address?.line2 
+                                        {patient.address?.line1 || patient.address?.line2
                                             ? `${patient.address?.line1 || ''} ${patient.address?.line2 || ''}`.trim()
                                             : 'Not Provided'
                                         }
@@ -341,29 +345,135 @@ const PatientDetail = () => {
             ) : (
                 /* Appointments Tab */
                 <div className='space-y-4'>
-                    {/* Filter Tabs */}
-                    <div className='bg-white rounded-xl shadow-sm p-4'>
-                        <div className='flex flex-wrap gap-2'>
-                            {[
-                                { key: 'all', label: 'All', count: stats?.total },
-                                { key: 'confirmed', label: 'Upcoming', count: stats?.confirmed },
-                                { key: 'completed', label: 'Completed', count: stats?.completed },
-                                { key: 'cancelled', label: 'Cancelled', count: stats?.cancelled },
-                                { key: 'expired', label: 'Expired', count: stats?.expired }
-                            ].map(filter => (
-                                <button
-                                    key={filter.key}
-                                    onClick={() => setAppointmentFilter(filter.key)}
-                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                                        appointmentFilter === filter.key
-                                            ? 'bg-purple-500 text-white shadow-md'
-                                            : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                    }`}
-                                >
-                                    {filter.label} ({filter.count || 0})
-                                </button>
-                            ))}
+                    {/* Filters & Search */}
+                    <div className='bg-white rounded-xl shadow-sm p-4 mb-6'>
+                        <div className='flex flex-col gap-4'>
+
+                            {/* Row 1: Status buttons + dropdown */}
+                            <div className='flex flex-wrap items-center gap-2'>
+                                {[
+                                    { key: 'all', label: 'All' },
+                                    { key: 'today', label: 'Today' },
+                                    { key: 'upcoming', label: 'Upcoming' },
+                                ].map(filter => (
+                                    <button
+                                        key={filter.key}
+                                        onClick={() => { setActiveFilter(filter.key); if (filter.key !== 'all') setStatusFilter('all') }}
+                                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                                            activeFilter === filter.key
+                                                ? 'bg-purple-600 text-white shadow-md'
+                                                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                        }`}
+                                    >
+                                        {filter.label}
+                                    </button>
+                                ))}
+
+                                <div className='w-px h-8 bg-gray-200 mx-1'></div>
+
+                                {/* Status dropdown */}
+                                <div className='relative'>
+                                    <select
+                                        value={activeFilter === 'all' ? statusFilter : 'all'}
+                                        onChange={(e) => {
+                                            setActiveFilter('all')
+                                            setStatusFilter(e.target.value)
+                                        }}
+                                        disabled={activeFilter !== 'all'}
+                                        className={`pl-4 pr-8 py-2 rounded-lg text-sm font-medium border transition-all appearance-none cursor-pointer ${
+                                            activeFilter === 'all' && statusFilter !== 'all'
+                                                ? 'bg-purple-600 text-white border-purple-600 shadow-md'
+                                                : activeFilter !== 'all'
+                                                    ? 'bg-gray-50 text-gray-400 border-gray-200 cursor-not-allowed'
+                                                    : 'bg-gray-100 text-gray-600 border-gray-100 hover:bg-gray-200'
+                                        }`}
+                                    >
+                                        <option value='all'>Status Filter</option>
+                                        <option value='completed'>Completed</option>
+                                        <option value='cancelled'>Cancelled</option>
+                                        <option value='expired'>Expired</option>
+                                    </select>
+                                    <svg className={`absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none ${activeFilter === 'all' && statusFilter !== 'all' ? 'text-white' : 'text-gray-400'}`} fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 9l-7 7-7-7' />
+                                    </svg>
+                                </div>
+                            </div>
+
+                            {/* Row 2: Specific date + Date range filter */}
+                            <div className='flex flex-wrap items-center gap-3'>
+
+                                {/* Specific Date */}
+                                <span className='text-sm font-medium text-gray-500 flex items-center gap-1'>
+                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                                    </svg>
+                                    Specific Date:
+                                </span>
+                                <input
+                                    type='date'
+                                    value={specificDate}
+                                    onChange={(e) => { setSpecificDate(e.target.value); if (e.target.value) { setFromDate(''); setToDate('') } }}
+                                    className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 ${specificDate ? 'border-purple-500 bg-purple-50' : 'border-gray-300'}`}
+                                />
+                                {specificDate && (
+                                    <button
+                                        onClick={clearSpecificDate}
+                                        className='flex items-center gap-1.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-all border border-red-200'
+                                    >
+                                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' /></svg>
+                                        Clear
+                                    </button>
+                                )}
+
+                                <div className='w-px h-8 bg-gray-200 mx-1'></div>
+
+                                {/* Date Range */}
+                                <span className='text-sm font-medium text-gray-500 flex items-center gap-1'>
+                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                                    </svg>
+                                    Date Range:
+                                </span>
+                                <input
+                                    type='date'
+                                    value={fromDate}
+                                    onChange={(e) => { setFromDate(e.target.value); if (e.target.value) setSpecificDate('') }}
+                                    className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500'
+                                />
+                                <span className='text-gray-400 text-sm'>to</span>
+                                <input
+                                    type='date'
+                                    value={toDate}
+                                    min={fromDate}
+                                    onChange={(e) => { setToDate(e.target.value); if (e.target.value) setSpecificDate('') }}
+                                    className='px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500'
+                                />
+                                {hasDateFilter && (
+                                    <button
+                                        onClick={clearDateFilter}
+                                        className='flex items-center gap-1.5 px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg transition-all border border-red-200'
+                                    >
+                                        <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M6 18L18 6M6 6l12 12' /></svg>
+                                        Clear
+                                    </button>
+                                )}
+                            </div>
                         </div>
+                    </div>
+
+                    {/* Appointments Count Optional Text */}
+                    <div className='mb-4 text-sm text-gray-500'>
+                        Showing <span className='font-semibold text-gray-700'>{filteredAppointments.length}</span> appointments
+                        {specificDate && (
+                            <span className='text-purple-600 ml-1'>
+                                for {new Date(specificDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                            </span>
+                        )}
+                        {hasDateFilter && fromDate && toDate && (
+                            <span className='text-purple-600 ml-1'>
+                                from {new Date(fromDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} to {new Date(toDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                            </span>
+                        )}
                     </div>
 
                     {/* Appointments List */}
@@ -382,10 +492,10 @@ const PatientDetail = () => {
                             {filteredAppointments.map((appointment, index) => (
                                 <div key={index} className='bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition-all'>
                                     <div className='flex flex-col sm:flex-row items-start gap-4'>
-                                        
+
                                         {/* Doctor Image */}
-                                        <img 
-                                            src={appointment.docData?.image} 
+                                        <img
+                                            src={appointment.docData?.image}
                                             alt={appointment.docData?.name}
                                             className='w-16 h-16 rounded-xl object-cover border-2 border-gray-100 bg-primary/10'
                                         />
@@ -402,15 +512,11 @@ const PatientDetail = () => {
 
                                             <div className='flex flex-wrap items-center gap-4 text-sm text-gray-600'>
                                                 <span className='flex items-center gap-1'>
-                                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
-                                                    </svg>
+                                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' /></svg>
                                                     {slotDateFormat(appointment.slotDate)}
                                                 </span>
                                                 <span className='flex items-center gap-1'>
-                                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' />
-                                                    </svg>
+                                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' /></svg>
                                                     {appointment.slotTime}
                                                 </span>
                                                 <span className='flex items-center gap-1 font-semibold text-gray-800'>
@@ -418,7 +524,6 @@ const PatientDetail = () => {
                                                 </span>
                                             </div>
 
-                                            {/* Cancellation/Reschedule Info */}
                                             {appointment.status === 'cancelled' && appointment.cancelReason && (
                                                 <div className='mt-3 p-2 bg-red-50 rounded-lg border border-red-100'>
                                                     <p className='text-xs text-red-600'>
