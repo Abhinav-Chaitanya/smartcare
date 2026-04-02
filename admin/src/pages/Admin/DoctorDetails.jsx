@@ -269,6 +269,7 @@ const DoctorDetails = () => {
         const bookedSlotsMap = {}
         appointments.forEach(apt => {
             const key = `${apt.slotDate}_${apt.slotTime}`
+            if (bookedSlotsMap[key] && bookedSlotsMap[key].status !== 'cancelled' && apt.status === 'cancelled') return;
             bookedSlotsMap[key] = {
                 patientName: apt.userData?.name || 'Unknown',
                 patientEmail: apt.userData?.email || '',
@@ -300,6 +301,7 @@ const DoctorDetails = () => {
         const bookedSlotsMap = {}
         appointments.forEach(apt => {
             const key = `${apt.slotDate}_${apt.slotTime}`
+            if (bookedSlotsMap[key] && bookedSlotsMap[key].status !== 'cancelled' && apt.status === 'cancelled') return;
             bookedSlotsMap[key] = {
                 patientName: apt.userData?.name || 'Unknown',
                 patientEmail: apt.userData?.email || '',
@@ -804,9 +806,11 @@ const DoctorDetails = () => {
                                                         else if (slot.isPast) { slotClasses = 'bg-gray-50 border-gray-200 text-gray-400'; cursorClass = 'cursor-not-allowed' }
                                                         else { slotClasses = 'bg-green-50 border-green-300 text-green-700' }
 
+                                                        let opacityClass = slot.isPast ? 'opacity-50' : ''
+                                                        
                                                         return (
                                                             <div key={idx} onClick={() => (slot.isBooked || slot.isCompleted || slot.isExpired) && handleSlotClick(slot)}
-                                                                className={`relative p-3 rounded-lg text-sm font-semibold text-center transition-all border-2 group ${slotClasses} ${cursorClass}`}
+                                                                className={`relative p-3 rounded-lg text-sm font-semibold text-center transition-all border-2 group ${slotClasses} ${cursorClass} ${opacityClass}`}
                                                             >
                                                                 {slot.time}
                                                                 {(slot.isBooked || slot.isCompleted || slot.isExpired) && slot.bookingInfo && (

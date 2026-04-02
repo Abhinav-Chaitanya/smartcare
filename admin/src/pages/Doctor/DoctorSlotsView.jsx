@@ -17,9 +17,12 @@ const DoctorSlotsView = () => {
     // View mode - 'upcoming' or 'custom'
     const [viewMode, setViewMode] = useState('upcoming')
 
-    // Custom date range
+    // Custom & Specific date range
     const [startDate, setStartDate] = useState('')
     const [endDate, setEndDate] = useState('')
+    const [appliedCustomRange, setAppliedCustomRange] = useState({ start: '', end: '' })
+    const [specificDate, setSpecificDate] = useState('')
+    const [appliedSpecificDate, setAppliedSpecificDate] = useState('')
 
     // Number of days to show (for upcoming mode)
     const [daysToShow, setDaysToShow] = useState(7)
@@ -46,11 +49,13 @@ const DoctorSlotsView = () => {
         if (profileData && appointments) {
             if (viewMode === 'upcoming') {
                 generateUpcomingSlots()
-            } else if (viewMode === 'custom' && startDate) {
-                generateCustomSlots()
+            } else if (viewMode === 'custom' && appliedCustomRange.start) {
+                generateCustomSlots(appliedCustomRange.start, appliedCustomRange.end)
+            } else if (viewMode === 'specific' && appliedSpecificDate) {
+                generateCustomSlots(appliedSpecificDate, appliedSpecificDate)
             }
         }
-    }, [profileData, appointments, viewMode, startDate, endDate, daysToShow])
+    }, [profileData, appointments, viewMode, appliedCustomRange, appliedSpecificDate, daysToShow])
 
     // Helper: Parse time string to hours and minutes
     const parseTime = (timeStr) => {
@@ -205,6 +210,7 @@ const DoctorSlotsView = () => {
         const bookedSlotsMap = {}
         appointments.forEach(apt => {
             const key = `${apt.slotDate}_${apt.slotTime}`
+            if (bookedSlotsMap[key] && bookedSlotsMap[key].status !== 'cancelled' && apt.status === 'cancelled') return;
             bookedSlotsMap[key] = {
                 patientName: apt.userData?.name || 'Unknown',
                 patientImage: apt.userData?.image || '',
@@ -218,7 +224,7 @@ const DoctorSlotsView = () => {
             const dayDate = new Date(today)
             dayDate.setDate(today.getDate() + i)
 
-            const result = generateSlotsForDay(dayDate, bookedSlotsMap, false)
+            const result = generateSlotsForDay(dayDate, bookedSlotsMap, true)
 
             allDays.push({
                 date: dayDate,
@@ -234,8 +240,8 @@ const DoctorSlotsView = () => {
     }
 
     // Generate custom date range slots (including past) using DYNAMIC schedule
-    const generateCustomSlots = () => {
-        if (!startDate) return
+    const generateCustomSlots = (startStr, endStr) => {
+        if (!startStr) return
 
         const allDays = []
 
@@ -243,6 +249,7 @@ const DoctorSlotsView = () => {
         const bookedSlotsMap = {}
         appointments.forEach(apt => {
             const key = `${apt.slotDate}_${apt.slotTime}`
+            if (bookedSlotsMap[key] && bookedSlotsMap[key].status !== 'cancelled' && apt.status === 'cancelled') return;
             bookedSlotsMap[key] = {
                 patientName: apt.userData?.name || 'Unknown',
                 patientImage: apt.userData?.image || '',
@@ -252,11 +259,11 @@ const DoctorSlotsView = () => {
             }
         })
 
-        const start = new Date(startDate)
+        const start = new Date(startStr)
         start.setHours(0, 0, 0, 0)
-        const end = endDate ? new Date(endDate) : new Date(startDate)
+        const end = endStr ? new Date(endStr) : new Date(startStr)
         end.setHours(0, 0, 0, 0)
-        if (!endDate) {
+        if (!endStr) {
             end.setDate(end.getDate() + 6) // Default 7 days if no end date
         }
 
@@ -489,6 +496,18 @@ const DoctorSlotsView = () => {
                                     Upcoming
                                 </button>
                                 <button
+                                    onClick={() => setViewMode('specific')}
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'specific'
+                                        ? 'bg-white text-primary shadow-sm'
+                                        : 'text-gray-600 hover:text-gray-800'
+                                        }`}
+                                >
+                                    <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' />
+                                    </svg>
+                                    Specific Date
+                                </button>
+                                <button
                                     onClick={() => setViewMode('custom')}
                                     className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${viewMode === 'custom'
                                         ? 'bg-white text-primary shadow-sm'
@@ -522,6 +541,30 @@ const DoctorSlotsView = () => {
                             </div>
                         )}
 
+                        {/* Specific Date Options */}
+                        {viewMode === 'specific' && (
+                            <div className='flex flex-wrap items-end gap-4 p-4 bg-gray-50 rounded-xl'>
+                                <div>
+                                    <label className='block text-sm font-medium text-gray-600 mb-1'>
+                                        Date
+                                    </label>
+                                    <input
+                                        type='date'
+                                        value={specificDate}
+                                        onChange={(e) => setSpecificDate(e.target.value)}
+                                        className='px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary'
+                                    />
+                                </div>
+                                <button
+                                    onClick={() => setAppliedSpecificDate(specificDate)}
+                                    disabled={!specificDate}
+                                    className='px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed'
+                                >
+                                    View Slots
+                                </button>
+                            </div>
+                        )}
+
                         {/* Custom Range Options */}
                         {viewMode === 'custom' && (
                             <div className='flex flex-wrap items-end gap-4 p-4 bg-gray-50 rounded-xl'>
@@ -549,7 +592,7 @@ const DoctorSlotsView = () => {
                                     />
                                 </div>
                                 <button
-                                    onClick={generateCustomSlots}
+                                    onClick={() => setAppliedCustomRange({ start: startDate, end: endDate })}
                                     disabled={!startDate}
                                     className='px-6 py-2 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed'
                                 >
@@ -821,11 +864,13 @@ const DoctorSlotsView = () => {
                                                         cursorClass = ''
                                                     }
 
+                                                    let opacityClass = slot.isPast ? 'opacity-50' : ''
+                                                    
                                                     return (
                                                         <div
                                                             key={idx}
                                                             onClick={() => (slot.isBooked || slot.isCompleted || slot.isExpired) && handleSlotClick(slot)}
-                                                            className={`relative p-3 rounded-lg text-sm font-semibold text-center transition-all border-2 group ${slotClasses} ${cursorClass}`}
+                                                            className={`relative p-3 rounded-lg text-sm font-semibold text-center transition-all border-2 group ${slotClasses} ${cursorClass} ${opacityClass}`}
                                                         >
                                                             {slot.time}
 
