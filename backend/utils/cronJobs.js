@@ -167,15 +167,132 @@ const expireOldAppointments = async () => {
     }
 }
 
+// Send generic reminder email
+const sendReminderEmail = async (appointment, type, isDoctor = false) => {
+    try {
+        const recipientName = isDoctor ? `Dr. ${appointment.docData.name}` : appointment.userData.name;
+        const recipientEmail = isDoctor ? appointment.docData.email : appointment.userData.email;
+        const subject = type === 'daily' 
+            ? `Reminder: Appointment Today - SmartCare`
+            : `Reminder: Appointment in 1 Hour - SmartCare`;
+            
+        const titleMessage = type === 'daily'
+            ? `You have an appointment scheduled for today.`
+            : `You have an appointment starting in 1 hour.`;
+
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: recipientEmail,
+            subject: subject,
+            html: `
+                <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
+                    <h2 style="color: #10B981;">Appointment Reminder</h2>
+                    <p>Hello ${recipientName},</p>
+                    <p>${titleMessage}</p>
+                    
+                    <div style="background-color: #ECFDF5; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #10B981;">
+                        <p><strong>${isDoctor ? 'Patient' : 'Doctor'}:</strong> ${isDoctor ? appointment.userData.name : 'Dr. ' + appointment.docData.name}</p>
+                        <p><strong>Date:</strong> ${formatDateForEmail(appointment.slotDate)}</p>
+                        <p><strong>Time:</strong> ${appointment.slotTime}</p>
+                    </div>
+                    
+                    ${!isDoctor ? '<p>Please ensure you are ready 10 minutes early.</p>' : '<p>Please ensure you are prepared for the consultation.</p>'}
+                    
+                    <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+                    <p style="color: #9ca3af; font-size: 12px;">This is an automated email from SmartCare Hospitals.</p>
+                </div>
+            `
+        }
+
+        await transporter.sendMail(mailOptions)
+        console.log(`Sent ${type} reminder to ${isDoctor ? 'doctor' : 'patient'}: ${recipientEmail}`)
+    } catch (error) {
+        console.error(`Error sending ${type} reminder:`, error)
+    }
+}
+
+// Process 7 AM Daily Reminders
+const processDailyReminders = async () => {
+    try {
+        console.log('Running daily 7 AM reminder check...')
+        const today = new Date();
+        const todayStr = `${today.getDate()}_${today.getMonth() + 1}_${today.getFullYear()}`;
+        
+        // Find all confirmed appointments for today
+        const appointments = await appointmentModel.find({ 
+            status: 'confirmed', 
+            slotDate: todayStr 
+        })
+        
+        for (const appointment of appointments) {
+             await sendReminderEmail(appointment, 'daily', false);
+             await sendReminderEmail(appointment, 'daily', true);
+        }
+        console.log(`Daily reminders sent for ${appointments.length} appointments.`)
+    } catch (error) {
+         console.error('Error in processDailyReminders:', error)
+    }
+}
+
+// Process 1-Hour Prior Reminders
+const processOneHourReminders = async () => {
+    try {
+        console.log('Running 1-hour prior reminder check...')
+        const today = new Date();
+        const todayStr = `${today.getDate()}_${today.getMonth() + 1}_${today.getFullYear()}`;
+        
+        // Find today's appointments
+        const appointments = await appointmentModel.find({ 
+            status: 'confirmed', 
+            slotDate: todayStr 
+        })
+        
+        let count = 0;
+        for (const appointment of appointments) {
+            const { hours, minutes } = parseSlotTime(appointment.slotTime)
+            const appointmentTime = new Date(today.getFullYear(), today.getMonth(), today.getDate(), hours, minutes)
+            const now = new Date()
+            
+            // Difference in minutes
+            const diffMins = (appointmentTime - now) / (1000 * 60);
+            
+            // If appointment is between 45 and 60 minutes away
+            if (diffMins > 45 && diffMins <= 60) {
+                 await sendReminderEmail(appointment, '1-hour', false);
+                 await sendReminderEmail(appointment, '1-hour', true);
+                 count++;
+            }
+        }
+        console.log(`1-hour reminders sent for ${count} appointments.`)
+    } catch (error) {
+         console.error('Error in processOneHourReminders:', error)
+    }
+}
+
 // Initialize cron jobs
 const initCronJobs = () => {
-    // Run every hour at minute 0 (e.g., 1:00, 2:00, 3:00, etc.)
+    // 1. Expiry Check: Run every hour at minute 0
     cron.schedule('0 * * * *', () => {
         console.log('Hourly cron job triggered at:', new Date().toLocaleString())
         expireOldAppointments()
     })
     
-    console.log('Cron jobs initialized - Appointment expiry check runs every hour')
+    // 2. Daily Reminders: Run every day at 7:00 AM
+    cron.schedule('0 7 * * *', () => {
+        console.log('Daily 7 AM reminder cron triggered at:', new Date().toLocaleString());
+        processDailyReminders();
+    });
+
+    // 3. 1-Hour Reminders: Run every 15 minutes
+    cron.schedule('*/15 * * * *', () => {
+        console.log('15-minute 1-hour prior reminder cron triggered at:', new Date().toLocaleString());
+        processOneHourReminders();
+    });
+    
+    console.log('Cron jobs initialized:');
+    console.log('- Appointment expiry check (Hourly)');
+    console.log('- Daily Reminders (Every day at 7:00 AM)');
+    console.log('- 1-Hour Prior Reminders (Every 15 minutes)');
 }
 
-export { initCronJobs, expireOldAppointments }
+export { initCronJobs, expireOldAppointments, processDailyReminders, processOneHourReminders }
