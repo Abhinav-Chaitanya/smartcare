@@ -1294,28 +1294,30 @@ const verifyRazorpayPayment = async (req, res) => {
     appointment.status = 'confirmed'
     await appointment.save()
 
-    // Get doctor details for email
-    const doctor = await doctorModel.findById(appointment.docId)
-
-    // ✅ Send confirmation email to USER with receipt
-    try {
-      const userMailOptions = {
-        from: process.env.EMAIL_USER,
-        to: appointment.userData.email,
-        subject: '✅ Appointment Confirmed - SmartCare Hospitals',
-        html: generateReceiptHTML(appointment, razorpay_payment_id)
+    // ✅ Run Emails Asynchronously so the frontend doesn't hang!
+    const sendEmailsInBackground = async () => {
+      try {
+        const doctor = await doctorModel.findById(appointment.docId)
+        
+        const userMailOptions = {
+          from: process.env.EMAIL_USER,
+          to: appointment.userData.email,
+          subject: '✅ Appointment Confirmed - SmartCare Hospitals',
+          html: generateReceiptHTML(appointment, razorpay_payment_id)
+        }
+        await transporter.sendMail(userMailOptions)
+        console.log('✅ User confirmation email sent successfully')
+      } catch (emailError) {
+        console.log('❌ Failed to send user confirmation email:', emailError)
       }
 
-      await transporter.sendMail(userMailOptions)
-      console.log('✅ User confirmation email sent successfully')
-    } catch (emailError) {
-      console.log('❌ Failed to send user confirmation email:', emailError)
-    }
-
-    // ✅ Send notification email to DOCTOR
-    if (doctor) {
-      await sendDoctorNewAppointmentEmail(appointment, doctor)
-    }
+      if (doctor) {
+        await sendDoctorNewAppointmentEmail(appointment, doctor)
+      }
+    };
+    
+    // Trigger, don't await
+    sendEmailsInBackground();
 
     res.json({
       success: true,
