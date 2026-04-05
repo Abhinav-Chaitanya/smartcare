@@ -85,14 +85,16 @@ const Payment = () => {
               { headers: { token } }
             )
             if (verifyData.data.success) {
+              setPaymentLoading(false)
               toast.success('Payment successful!')
-              await getDoctorsData()
-              navigate('/my-appointments')
+              navigate('/my-appointments', { replace: true })
             } else {
+              setPaymentLoading(false)
               toast.error(verifyData.data.message || 'Payment verification failed')
             }
           } catch (error) {
             console.log(error)
+            setPaymentLoading(false)
             toast.error('Payment verification failed')
           }
         },
