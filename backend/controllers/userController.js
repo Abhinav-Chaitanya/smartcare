@@ -71,7 +71,7 @@ const generateReceiptHTML = (appointment, paymentId) => {
           </tr>
           <tr style="background-color: #F9FAFB;">
             <td style="padding: 12px; color: #6B7280;">Doctor</td>
-            <td style="padding: 12px; color: #111827; font-weight: 600;">Dr. ${appointment.docData.name}</td>
+            <td style="padding: 12px; color: #111827; font-weight: 600;">${appointment.docData.name}</td>
           </tr>
           <tr>
             <td style="padding: 12px 0; color: #6B7280;">Speciality</td>
@@ -163,7 +163,7 @@ const sendDoctorNewAppointmentEmail = async (appointment, doctor) => {
 
         <!-- Content -->
         <div style="padding: 25px;">
-          <h3 style="color: #111827; margin-top: 0;">Hello Dr. ${doctor.name},</h3>
+          <h3 style="color: #111827; margin-top: 0;">Hello ${doctor.name},</h3>
           
           <p style="color: #4B5563; line-height: 1.6;">
             A new appointment has been booked with you. Here are the details:
@@ -247,7 +247,7 @@ const sendCancellationEmails = async (appointment, doctor) => {
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; color: #6B7280;">Doctor</td>
-                <td style="padding: 8px 0; color: #111827; font-weight: 600;">Dr. ${doctor.name}</td>
+                <td style="padding: 8px 0; color: #111827; font-weight: 600;"> ${doctor.name}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #6B7280;">Speciality</td>
@@ -405,7 +405,7 @@ const sendRescheduleEmails = async (appointment, doctor, oldSlotDate, oldSlotTim
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 8px 0; color: #6B7280;">Doctor</td>
-                <td style="padding: 8px 0; color: #111827; font-weight: 600;">Dr. ${doctor.name}</td>
+                <td style="padding: 8px 0; color: #111827; font-weight: 600;"> ${doctor.name}</td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #6B7280;">Speciality</td>
@@ -617,16 +617,16 @@ const updateProfile = async (req, res) => {
     }
 
     // ✅ Check if profile is now complete
-    const isComplete = 
+    const isComplete =
       phone && phone !== '0000000000' &&
       gender && gender !== 'Not Selected' &&
       dob && dob !== 'Not Selected'
 
-    await userModel.findByIdAndUpdate(userId, { 
-      name, 
-      phone, 
-      address: JSON.parse(address), 
-      dob, 
+    await userModel.findByIdAndUpdate(userId, {
+      name,
+      phone,
+      address: JSON.parse(address),
+      dob,
       gender,
       isProfileComplete: isComplete  // ✅ NEW
     })

@@ -20,7 +20,7 @@ const loadImageAsBase64 = (url) => {
 
 export const generatePrescriptionPDF = async (appointment, logoUrl) => {
     const doc = new jsPDF()
-    
+
     const pageWidth = doc.internal.pageSize.getWidth()
     const pageHeight = doc.internal.pageSize.getHeight()
     const margin = 15
@@ -77,7 +77,7 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
     yPos += 6
 
     // Date of issue
-    const completedDate = appointment.completedAt 
+    const completedDate = appointment.completedAt
         ? new Date(appointment.completedAt).toLocaleDateString('en-IN', {
             day: 'numeric',
             month: 'long',
@@ -111,7 +111,7 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
 
     doc.setFontSize(8)
     doc.setTextColor(...darkColor)
-    
+
     const patientDetails = [
         { label: 'Name:', value: appointment.userData?.name || 'N/A', labelWidth: 12 },
         { label: 'Email:', value: appointment.userData?.email || 'N/A', labelWidth: 12 },
@@ -160,7 +160,7 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
     }
 
     const doctorDetails = [
-        { label: 'Doctor:', value: `Dr. ${appointment.docData?.name || 'N/A'}`, labelWidth: 14 },
+        { label: 'Doctor:', value: `${appointment.docData?.name || 'N/A'}`, labelWidth: 14 },
         { label: 'Speciality:', value: appointment.docData?.speciality || 'N/A', labelWidth: 18 },
         { label: 'Date:', value: formatSlotDate(appointment.slotDate), labelWidth: 12 },
         { label: 'Time:', value: appointment.slotTime || 'N/A', labelWidth: 12 },
@@ -184,11 +184,11 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
 
     // ==================== DIAGNOSIS SECTION ====================
     doc.setFillColor(236, 253, 245)
-    
+
     const diagnosis = appointment.diagnosis || 'No diagnosis recorded'
     const diagnosisLines = doc.splitTextToSize(diagnosis, pageWidth - 2 * margin - 20)
     const diagnosisHeight = 18 + (diagnosisLines.length * 4) // Increased height for line space
-    
+
     doc.roundedRect(margin, yPos, pageWidth - 2 * margin, diagnosisHeight, 3, 3, 'F')
 
     doc.setFontSize(10)
@@ -209,7 +209,7 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
     doc.setTextColor(...primaryColor)
     doc.setFont('helvetica', 'bold')
     doc.text('PRESCRIPTION', margin, yPos + 4)
-    
+
     yPos += 12 // Added line space after heading (removed the blue line)
 
     if (appointment.prescription?.hasMedicines && appointment.prescription.medicines?.length > 0) {
@@ -225,7 +225,7 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
         doc.setFontSize(8)
         doc.setTextColor(255, 255, 255)
         doc.setFont('helvetica', 'bold')
-        
+
         tableHeaders.forEach((header, i) => {
             doc.text(header, xPos + 2, yPos + 5.5)
             xPos += colWidths[i]
@@ -291,18 +291,18 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
         doc.setFillColor(254, 243, 199)
         const notesLines = doc.splitTextToSize(appointment.prescription.notes, pageWidth - 2 * margin - 16)
         const notesHeight = 16 + notesLines.length * 4 // Increased height for line space
-        
+
         doc.roundedRect(margin, yPos, pageWidth - 2 * margin, notesHeight, 3, 3, 'F')
-        
+
         doc.setFontSize(8)
         doc.setTextColor(146, 64, 14)
         doc.setFont('helvetica', 'bold')
         doc.text("DOCTOR'S INSTRUCTIONS:", margin + 8, yPos + 6)
-        
+
         // Added line space before notes text
         doc.setFont('helvetica', 'normal')
         doc.text(notesLines, margin + 8, yPos + 14) // Moved down for line space
-        
+
         yPos += notesHeight + 5
     }
 
@@ -335,7 +335,7 @@ export const generatePrescriptionPDF = async (appointment, logoUrl) => {
     // ==================== SAVE PDF ====================
     const fileName = `Prescription_${appointment.userData?.name?.replace(/\s+/g, '_') || 'Patient'}_${formatSlotDate(appointment.slotDate).replace(/\s+/g, '_')}.pdf`
     doc.save(fileName)
-    
+
     return fileName
 }
 

@@ -291,7 +291,7 @@ export const generateAppointmentPDF = async (appointment, logoUrl) => {
     doc.setFontSize(11)
     doc.setTextColor(...greenColor)
     doc.setFont('helvetica', 'bold')
-    doc.text('✓ BOOKED', pageWidth - margin - 6, yPos + 11, { align: 'right' })
+    doc.text('BOOKED', pageWidth - margin - 6, yPos + 11, { align: 'right' })
 
     // ==================== FOOTER ====================
     const footerY = pageHeight - 15

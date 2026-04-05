@@ -60,7 +60,7 @@ const calculateAge = (dob) => {
 
 export const generateAppointmentPDF = async (appointment, logoUrl) => {
     const doc = new jsPDF()
-    
+
     const pageWidth = doc.internal.pageSize.getWidth()
     const pageHeight = doc.internal.pageSize.getHeight()
     const margin = 15
@@ -182,7 +182,7 @@ export const generateAppointmentPDF = async (appointment, logoUrl) => {
     let doctorY = yPos + 18
 
     const doctorFields = [
-        { label: 'Doctor', value: `Dr. ${appointment.docData?.name || 'N/A'}` },
+        { label: 'Doctor', value: `${appointment.docData?.name || 'N/A'}` },
         { label: 'Speciality', value: appointment.docData?.speciality || 'N/A' },
         { label: 'Degree', value: appointment.docData?.degree || 'N/A' },
         { label: 'Experience', value: appointment.docData?.experience || 'N/A' }
@@ -291,7 +291,7 @@ export const generateAppointmentPDF = async (appointment, logoUrl) => {
     doc.setFontSize(11)
     doc.setTextColor(...greenColor)
     doc.setFont('helvetica', 'bold')
-    doc.text('✓ BOOKED', pageWidth - margin - 6, yPos + 11, { align: 'right' })
+    doc.text('BOOKED', pageWidth - margin - 6, yPos + 11, { align: 'right' })
 
     // ==================== FOOTER ====================
     const footerY = pageHeight - 15
@@ -310,9 +310,9 @@ export const generateAppointmentPDF = async (appointment, logoUrl) => {
     const patientName = appointment.userData?.name?.replace(/\s+/g, '_') || 'Patient'
     const dateStr = formatShortDate(appointment.slotDate).replace(/\s+/g, '-')
     const fileName = `SmartCare_Booking_${patientName}_${dateStr}.pdf`
-    
+
     doc.save(fileName)
-    
+
     return fileName
 }
 

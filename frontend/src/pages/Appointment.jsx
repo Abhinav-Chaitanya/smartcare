@@ -284,14 +284,12 @@ const Appointment = () => {
                                 src={docInfo.image}
                                 alt={docInfo.name}
                             />
-                            {docInfo.available && (
-                                <div className='absolute top-4 left-4'>
-                                    <span className='bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg'>
-                                        <span className='w-2 h-2 bg-white rounded-full animate-pulse'></span>
-                                        Available
-                                    </span>
-                                </div>
-                            )}
+                            <div className='absolute top-4 left-4'>
+                                <span className={`${docInfo.available ? 'bg-green-500' : 'bg-gray-500'} text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg`}>
+                                    <span className={`w-2 h-2 bg-white rounded-full ${docInfo.available ? 'animate-pulse' : ''}`}></span>
+                                    {docInfo.available ? 'Available' : 'Unavailable'}
+                                </span>
+                            </div>
                         </div>
                     </div>
 
@@ -372,6 +370,18 @@ const Appointment = () => {
                             <div className='w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-3'></div>
                             <p className='text-gray-500'>Loading available slots...</p>
                         </div>
+                    </div>
+                ) : !docInfo.available ? (
+                    <div className='text-center py-12 bg-red-50 rounded-xl border-2 border-dashed border-red-200'>
+                        <div className='w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4'>
+                            <svg className='w-8 h-8 text-red-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z' />
+                            </svg>
+                        </div>
+                        <h3 className='text-xl font-semibold text-gray-700 mb-2'>Doctor Unavailable</h3>
+                        <p className='text-gray-500 max-w-md mx-auto'>
+                            This doctor is currently not accepting new appointments. Please check back later.
+                        </p>
                     </div>
                 ) : !hasAnySlots ? (
                     // No slots available message

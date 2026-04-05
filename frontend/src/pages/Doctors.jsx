@@ -14,9 +14,9 @@ const Doctors = () => {
 
   const applyFilter = () => {
     if (speciality) {
-      setFilterDoc(doctors.filter(doc => doc.speciality === speciality && doc.available))
+      setFilterDoc(doctors.filter(doc => doc.speciality === speciality))
     } else {
-      setFilterDoc(doctors.filter(doc => doc.available))  // Show only available doctors
+      setFilterDoc(doctors)
     }
   }
 
@@ -199,14 +199,12 @@ const Doctors = () => {
                     />
                     
                     {/* Available Badge */}
-                    {item.available && (
-                      <div className='absolute top-3 right-3'>
-                        <div className='bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg'>
-                          <span className='w-2 h-2 bg-white rounded-full animate-pulse'></span>
-                          Available
-                        </div>
+                    <div className='absolute top-3 right-3'>
+                      <div className={`${item.available ? 'bg-green-500' : 'bg-gray-500'} text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg`}>
+                        <span className={`w-2 h-2 bg-white rounded-full ${item.available ? 'animate-pulse' : ''}`}></span>
+                        {item.available ? 'Available' : 'Unavailable'}
                       </div>
-                    )}
+                    </div>
                   </div>
 
                   {/* Doctor Info */}
