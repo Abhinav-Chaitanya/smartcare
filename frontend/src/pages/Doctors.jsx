@@ -8,7 +8,7 @@ const Doctors = () => {
   const [filterDoc, setFilterDoc] = useState([])
   const [showFilter, setShowFilter] = useState(false)
   const navigate = useNavigate()
-  
+
   // ✅ UPDATED: Get departments from context
   const { doctors, departments, departmentsLoading, currencySymbol } = useContext(AppContext)
 
@@ -48,11 +48,11 @@ const Doctors = () => {
       </div>
 
       <div className='flex flex-col lg:flex-row gap-6'>
-        
+
         {/* Sidebar Filter */}
         <div className='lg:w-64 flex-shrink-0'>
           {/* Mobile Filter Toggle */}
-          <button 
+          <button
             className='lg:hidden w-full mb-4 py-3 px-4 bg-primary text-white rounded-lg font-medium flex items-center justify-center gap-2 transition-all hover:bg-primary/90'
             onClick={() => setShowFilter(prev => !prev)}
           >
@@ -71,7 +71,7 @@ const Doctors = () => {
                 </svg>
                 Specialties
               </h3>
-              
+
               {/* ✅ Loading State */}
               {departmentsLoading ? (
                 <div className='space-y-2'>
@@ -85,8 +85,8 @@ const Doctors = () => {
                   <button
                     onClick={() => navigate('/doctors')}
                     className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-between
-                      ${!speciality 
-                        ? 'bg-primary text-white shadow-md' 
+                      ${!speciality
+                        ? 'bg-primary text-white shadow-md'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                   >
                     <div className='flex items-center gap-3'>
@@ -95,11 +95,10 @@ const Doctors = () => {
                       </svg>
                       <span>All Doctors</span>
                     </div>
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${
-                      !speciality 
-                        ? 'bg-white/20 text-white' 
-                        : 'bg-gray-200 text-gray-600'
-                    }`}>
+                    <span className={`text-xs px-2 py-0.5 rounded-full ${!speciality
+                      ? 'bg-white/20 text-white'
+                      : 'bg-gray-200 text-gray-600'
+                      }`}>
                       {totalAvailableDoctors}
                     </span>
                   </button>
@@ -110,8 +109,8 @@ const Doctors = () => {
                       key={dept._id}
                       onClick={() => handleSpecialityClick(dept.name)}
                       className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-between
-                        ${speciality === dept.name 
-                          ? 'bg-primary text-white shadow-md' 
+                        ${speciality === dept.name
+                          ? 'bg-primary text-white shadow-md'
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     >
                       <div className='flex items-center gap-3'>
@@ -120,11 +119,10 @@ const Doctors = () => {
                         </svg>
                         <span>{dept.name}</span>
                       </div>
-                      <span className={`text-xs px-2 py-0.5 rounded-full ${
-                        speciality === dept.name 
-                          ? 'bg-white/20 text-white' 
-                          : 'bg-gray-200 text-gray-600'
-                      }`}>
+                      <span className={`text-xs px-2 py-0.5 rounded-full ${speciality === dept.name
+                        ? 'bg-white/20 text-white'
+                        : 'bg-gray-200 text-gray-600'
+                        }`}>
                         {dept.doctorCount}
                       </span>
                     </button>
@@ -168,7 +166,7 @@ const Doctors = () => {
               </div>
               <h3 className='text-xl font-semibold text-gray-700 mb-2'>No doctors found</h3>
               <p className='text-gray-500 mb-4'>
-                {speciality 
+                {speciality
                   ? `No available doctors in ${speciality} department`
                   : 'Try selecting a different specialty'
                 }
@@ -192,12 +190,12 @@ const Doctors = () => {
                 >
                   {/* Doctor Image */}
                   <div className='relative overflow-hidden bg-gradient-to-br from-blue-50 to-primary/10'>
-                    <img 
-                      className='w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 bg-primary' 
-                      src={item.image} 
-                      alt={item.name} 
+                    <img
+                      className='w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 bg-primary'
+                      src={item.image}
+                      alt={item.name}
                     />
-                    
+
                     {/* Available Badge */}
                     <div className='absolute top-3 right-3'>
                       <div className={`${item.available ? 'bg-green-500' : 'bg-gray-500'} text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1 shadow-lg`}>
@@ -212,7 +210,7 @@ const Doctors = () => {
                     <h3 className='text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors'>
                       {item.name}
                     </h3>
-                    
+
                     <div className='flex items-center gap-2 mb-3'>
                       <span className='text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full'>
                         {item.speciality}
@@ -226,9 +224,9 @@ const Doctors = () => {
                         </svg>
                         <span>{currencySymbol}{item.fees}</span>
                       </div>
-                      
+
                       <button className='text-sm font-semibold text-primary group-hover:text-primary/80 flex items-center gap-1'>
-                        Book Now
+                        Book an Appointment
                         <svg className='w-4 h-4 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                           <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M14 5l7 7m0 0l-7 7m7-7H3' />
                         </svg>

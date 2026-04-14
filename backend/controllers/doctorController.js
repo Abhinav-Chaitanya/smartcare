@@ -37,7 +37,7 @@ const changeAvailability = async (req, res) => {
 
 const doctorList = async (req, res) => {
     try {
-        const doctors = await doctorModel.find({}).select(['-password', '-email'])
+        const doctors = await doctorModel.find({ isBlocked: { $ne: true } }).select(['-password', '-email'])
         res.json({ success: true, doctors })
     } catch (error) {
         console.log(error)
@@ -96,6 +96,10 @@ const loginDoctor = async (req, res) => {
 
         if (!doctor) {
             return res.json({ success: false, message: "Invalid credentials" })
+        }
+
+        if (doctor.isBlocked) {
+            return res.json({ success: false, message: doctor.blockedReason ? `Account block reason: ${doctor.blockedReason}` : "Your account has been blocked by the admin." })
         }
 
         const isMatch = await bcrypt.compare(password, doctor.password)

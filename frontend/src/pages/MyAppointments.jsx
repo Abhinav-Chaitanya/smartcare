@@ -293,8 +293,8 @@ const MyAppointments = () => {
                   ${activeFilter === 'all' && statusFilter !== 'all'
                     ? 'bg-primary text-white border-primary shadow-md'
                     : activeFilter !== 'all'
-                    ? 'bg-gray-50 text-gray-400 border-gray-200 cursor-not-allowed'
-                    : 'bg-gray-100 text-gray-600 border-gray-100 hover:bg-gray-200'
+                      ? 'bg-gray-50 text-gray-400 border-gray-200 cursor-not-allowed'
+                      : 'bg-gray-100 text-gray-600 border-gray-100 hover:bg-gray-200'
                   }`}
               >
                 <option value='all'>Status Filter</option>
@@ -336,9 +336,8 @@ const MyAppointments = () => {
               type='date'
               value={specificDate}
               onChange={(e) => { setSpecificDate(e.target.value); if (e.target.value) { setFromDate(''); setToDate('') } }}
-              className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary ${
-                specificDate ? 'border-primary bg-primary/5' : 'border-gray-300'
-              }`}
+              className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary ${specificDate ? 'border-primary bg-primary/5' : 'border-gray-300'
+                }`}
             />
             {specificDate && (
               <button
@@ -558,7 +557,7 @@ const MyAppointments = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Cancel Appointment?</h3>
-              <p className="text-gray-600 mb-2">Are you sure you want to cancel your appointment with <strong>Dr. {selectedAppointment.docData.name}</strong>?</p>
+              <p className="text-gray-600 mb-2">Are you sure you want to cancel your appointment with <strong>{selectedAppointment.docData.name}</strong>?</p>
               <p className="text-sm text-gray-500 mb-4">{slotDateFormat(selectedAppointment.slotDate)} at {selectedAppointment.slotTime}</p>
               <p className="text-xs text-gray-400 mb-6">You'll receive an OTP on your email for verification.</p>
               <div className="flex gap-3">

@@ -46,7 +46,11 @@ const PatientDetail = () => {
     }
 
     const getFilteredAppointments = () => {
-        let filtered = [...appointments].reverse()
+        let filtered = [...appointments].sort((a, b) => {
+            const timeA = parseSlotDate(a.slotDate).getTime()
+            const timeB = parseSlotDate(b.slotDate).getTime()
+            return timeB !== timeA ? timeB - timeA : b.date - a.date
+        })
         const today = new Date()
         today.setHours(0, 0, 0, 0)
 
@@ -227,6 +231,10 @@ const PatientDetail = () => {
                                 <div className='text-center px-4 py-2 bg-white rounded-xl shadow-sm'>
                                     <p className='text-2xl font-bold text-red-600'>{stats.cancelled}</p>
                                     <p className='text-xs text-gray-500'>Cancelled</p>
+                                </div>
+                                <div className='text-center px-4 py-2 bg-white rounded-xl shadow-sm'>
+                                    <p className='text-2xl font-bold text-yellow-500'>{stats.expired || 0}</p>
+                                    <p className='text-xs text-gray-500'>Expired</p>
                                 </div>
                             </div>
                         )}

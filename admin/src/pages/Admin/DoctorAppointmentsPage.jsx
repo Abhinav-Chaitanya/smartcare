@@ -298,6 +298,14 @@ const DoctorAppointmentsPage = () => {
                                 <p className='text-2xl font-bold text-blue-600'>{stats.completed}</p>
                                 <p className='text-xs text-gray-500'>Completed</p>
                             </div>
+                            <div className='text-center px-4 py-2 bg-white rounded-xl shadow-sm'>
+                                <p className='text-2xl font-bold text-red-600'>{stats.cancelled}</p>
+                                <p className='text-xs text-gray-500'>Cancelled</p>
+                            </div>
+                            <div className='text-center px-4 py-2 bg-white rounded-xl shadow-sm'>
+                                <p className='text-2xl font-bold text-yellow-500'>{stats.expired}</p>
+                                <p className='text-xs text-gray-500'>Expired</p>
+                            </div>
                         </div>
                     </div>
                 </div>
