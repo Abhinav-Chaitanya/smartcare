@@ -1307,12 +1307,12 @@ const verifyRazorpayPayment = async (req, res) => {
         }
         await transporter.sendMail(userMailOptions)
         console.log('✅ User confirmation email sent successfully')
+        
+        if (doctor) {
+          await sendDoctorNewAppointmentEmail(appointment, doctor)
+        }
       } catch (emailError) {
-        console.log('❌ Failed to send user confirmation email:', emailError)
-      }
-
-      if (doctor) {
-        await sendDoctorNewAppointmentEmail(appointment, doctor)
+        console.log('❌ Failed to send confirmation emails:', emailError)
       }
     };
     
