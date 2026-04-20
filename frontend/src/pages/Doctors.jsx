@@ -13,16 +13,23 @@ const Doctors = () => {
   const { doctors, departments, departmentsLoading, currencySymbol } = useContext(AppContext)
 
   const applyFilter = () => {
+    let validDoctors = doctors;
+    // Hide doctors belonging to inactive/missing departments
+    if (!departmentsLoading) {
+      const activeDeptNames = departments.map(d => d.name)
+      validDoctors = doctors.filter(doc => activeDeptNames.includes(doc.speciality))
+    }
+
     if (speciality) {
-      setFilterDoc(doctors.filter(doc => doc.speciality === speciality))
+      setFilterDoc(validDoctors.filter(doc => doc.speciality === speciality))
     } else {
-      setFilterDoc(doctors)
+      setFilterDoc(validDoctors)
     }
   }
 
   useEffect(() => {
     applyFilter()
-  }, [doctors, speciality])
+  }, [doctors, speciality, departments, departmentsLoading])
 
   const handleSpecialityClick = (spec) => {
     if (speciality === spec) {
@@ -32,8 +39,9 @@ const Doctors = () => {
     }
   }
 
-  // Get total available doctors count
-  const totalAvailableDoctors = doctors.filter(doc => doc.available).length
+  // Get total available doctors count (respecting active departments)
+  const activeDeptNames = departments.map(d => d.name)
+  const totalAvailableDoctors = doctors.filter(doc => doc.available && (!departmentsLoading ? activeDeptNames.includes(doc.speciality) : true)).length
 
   return (
     <div className='py-8'>
