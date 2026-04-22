@@ -208,7 +208,7 @@ const blockDoctor = async (req, res) => {
                             <p>Hello ${patientName},</p>
                             <p>We regret to inform you that your appointment has been cancelled as the doctor is no longer available.</p>
                             <div style="background-color: #FEF2F2; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #EF4444;">
-                                <p><strong>Doctor:</strong> Dr. ${doctorName}</p>
+                                <p><strong>Doctor:</strong> ${doctorName}</p>
                                 <p><strong>Date:</strong> ${formattedDate}</p>
                                 <p><strong>Time:</strong> ${appointment.slotTime}</p>
                             </div>
@@ -488,7 +488,7 @@ const appointmentCancelWithReason = async (req, res) => {
                     <p>Hello ${patientName},</p>
                     <p>We regret to inform you that your appointment has been cancelled by the hospital administration.</p>
                     <div style="background-color: #FEF2F2; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #EF4444;">
-                        <p><strong>Doctor:</strong> Dr. ${doctorName}</p>
+                        <p><strong>Doctor:</strong> ${doctorName}</p>
                         <p><strong>Original Date:</strong> ${formattedDate}</p>
                         <p><strong>Original Time:</strong> ${appointment.slotTime}</p>
                     </div>
@@ -516,7 +516,7 @@ const appointmentCancelWithReason = async (req, res) => {
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
                     <h2 style="color: #EF4444;">Appointment Cancelled by Admin</h2>
-                    <p>Hello Dr. ${doctorName},</p>
+                    <p>Hello ${doctorName},</p>
                     <p>An appointment has been cancelled by the hospital administration.</p>
                     <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
                         <p><strong>Patient:</strong> ${patientName}</p>
@@ -625,7 +625,7 @@ const appointmentRescheduleAdmin = async (req, res) => {
                         <p style="margin: 5px 0; color: #059669; font-size: 18px; font-weight: bold;">${newFormattedDate} at ${newSlotTime}</p>
                     </div>
                     <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
-                        <p><strong>Doctor:</strong> Dr. ${doctorName}</p>
+                        <p><strong>Doctor:</strong> ${doctorName}</p>
                     </div>
                     <div style="background-color: #FFF7ED; padding: 15px; border-radius: 10px; margin: 20px 0;">
                         <p style="margin: 0; font-weight: bold; color: #C2410C;">Reason for Rescheduling:</p>
@@ -645,7 +645,7 @@ const appointmentRescheduleAdmin = async (req, res) => {
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
                     <h2 style="color: #F59E0B;">Appointment Rescheduled by Admin</h2>
-                    <p>Hello Dr. ${doctorName},</p>
+                    <p>Hello ${doctorName},</p>
                     <p>An appointment has been rescheduled by the hospital administration.</p>
                     <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
                         <p><strong>Patient:</strong> ${patientName}</p>

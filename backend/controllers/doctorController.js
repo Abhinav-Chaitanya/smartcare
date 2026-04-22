@@ -212,7 +212,7 @@ const sendDoctorOTP = async (req, res) => {
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
                     <h2 style="color: #4F46E5;">Doctor Portal - Password Reset</h2>
-                    <p>Hello Dr. ${doctor.name},</p>
+                    <p>Hello ${doctor.name},</p>
                     <p>You requested to reset your password. Use the OTP below to proceed:</p>
                     <div style="background-color: #f3f4f6; padding: 20px; text-align: center; font-size: 32px; font-weight: bold; letter-spacing: 8px; margin: 20px 0;">
                         ${otp}
@@ -386,7 +386,7 @@ const appointmentsDoctor = async (req, res) => {
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
                     <h2 style="color: #10B981;">✅ Appointment Completed</h2>
-                    <p>Hello Dr. ${doctorName},</p>
+                    <p>Hello ${doctorName},</p>
                     <p>You have successfully marked an appointment as completed.</p>
                     
                     <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
@@ -526,7 +526,7 @@ const appointmentComplete = async (req, res) => {
                         <!-- Appointment Details -->
                         <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
                             <h3 style="margin: 0 0 15px 0; color: #1f2937;">📅 Appointment Details</h3>
-                            <p style="margin: 5px 0;"><strong>Doctor:</strong> Dr. ${doctorName}</p>
+                            <p style="margin: 5px 0;"><strong>Doctor:</strong> ${doctorName}</p>
                             <p style="margin: 5px 0;"><strong>Speciality:</strong> ${doctorSpeciality}</p>
                             <p style="margin: 5px 0;"><strong>Date:</strong> ${slotDate}</p>
                             <p style="margin: 5px 0;"><strong>Time:</strong> ${slotTime}</p>
@@ -584,7 +584,7 @@ const appointmentComplete = async (req, res) => {
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
                     <h2 style="color: #10B981;">✅ Appointment Completed</h2>
-                    <p>Hello Dr. ${doctorName},</p>
+                    <p>Hello ${doctorName},</p>
                     <p>You have successfully completed an appointment and the prescription has been sent to the patient.</p>
                     
                     <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
@@ -707,7 +707,7 @@ const appointmentCancel = async (req, res) => {
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
                     <h2 style="color: #EF4444;">❌ Appointment Cancelled</h2>
-                    <p>Hello Dr. ${doctorName},</p>
+                    <p>Hello ${doctorName},</p>
                     <p>You have successfully cancelled an appointment.</p>
                     
                     <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
@@ -859,7 +859,7 @@ const appointmentReschedule = async (req, res) => {
             html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto;">
                     <h2 style="color: #F59E0B;">🔄 Appointment Rescheduled</h2>
-                    <p>Hello Dr. ${doctorName},</p>
+                    <p>Hello ${doctorName},</p>
                     <p>You have successfully rescheduled an appointment.</p>
                     
                     <div style="background-color: #f3f4f6; padding: 20px; border-radius: 10px; margin: 20px 0;">
